@@ -188,8 +188,10 @@ _core["default"].page({
       wx.navigateBack();
     },
     goSend: function goSend() {
+      console.log(this)
       wx.navigateTo({
-        url: "/pages/post-send?type=0&topicId=".concat(this.topicId, "&title=").concat(encodeURI(this.topic.title))
+        url: "/pages/post-send?type=0&topicId=".concat(this.topicId, "&title=")
+        .concat(encodeURI(this.topic.title),"&TopicownerId=").concat(this.topic.ownerId)
       });
     },
     onFollow: function onFollow() {

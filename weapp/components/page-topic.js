@@ -329,7 +329,12 @@ _core["default"].component({
       wx.navigateTo({
         url: "/pages/topic-maidan"
       });
-    }
+    },
+    goTopic: function goTopic(id) {
+      wx.navigateTo({
+        url: "/pages/topic?id=".concat(id)
+      });
+    },
   }
 }, {info: {"components":{"mp-page":{"path":"mp-page"},"item-topic":{"path":"item-topic"}},"on":{"59-0":["scrolltolower","refresherrefresh","refresherrestore","refresherpulling"],"59-10":["follow"]}}, handlers: {'59-0': {"scrolltolower": function proxy () {
     var $event = arguments[arguments.length - 1];

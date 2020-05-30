@@ -434,7 +434,7 @@ class UserController extends BaseController {
     return await db.runTransaction(async t => {
       const vip=await db.collection('users').doc(content.OPENID).get()
 
-         if(vip.data.userType==1){
+         if(vip.data.grade==3){
                 return this.fail()
          }
          else{
@@ -444,7 +444,7 @@ class UserController extends BaseController {
             //商户订单号
             out_trade_no: 'vipcharge_' + 'money'+ '' + curTime,
             body: '充值vip',       //商品名称
-            total_fee: 100,     //金额，注意是数字，不是字符串
+            total_fee: 250,     //金额，注意是数字，不是字符串
             openid: content.OPENID, //***用户的openid
             }).catch(() => {
             return this.fail()
@@ -452,14 +452,14 @@ class UserController extends BaseController {
          }
 
     })
-  
+   
   }
   
   async payvipvoer(data, content) {
     return await db.runTransaction(async t => {
       if (!db.collection('users').doc(content.OPENID).update({
         data:{
-          userType: 1,
+          grade: 3,
         }
       }).catch(() => false)) {
         await t.rollback(-100)

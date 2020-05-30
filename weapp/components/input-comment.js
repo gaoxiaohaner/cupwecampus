@@ -15,7 +15,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 _core["default"].component({
   options: {
     addGlobalClass: true
-  },
+  }, 
   props: {
     toId: Number,
     postId: Number,

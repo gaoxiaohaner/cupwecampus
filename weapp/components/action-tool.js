@@ -48,7 +48,8 @@ _core["default"].component({
 
       if (this.topic) {
         wx.navigateTo({
-          url: "/pages/post-send?type=".concat(index, "&topicId=").concat(this.topic.id, "&title=").concat(encodeURI(this.topic.title))
+          url: "/pages/post-send?type=".concat(index, "&topicId=").concat(this.topic.id, "&title=")
+          .concat(encodeURI(this.topic.title),"&TopicownerId=").concat(this.topic.ownerId)
         });
       } else {
         wx.navigateTo({

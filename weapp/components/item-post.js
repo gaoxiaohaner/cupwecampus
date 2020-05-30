@@ -59,13 +59,13 @@ _core["default"].component({
       wx.navigateTo({
         url: "/pages/post-article?url=".concat(_api.baseUrl, "/api/public/article/").concat(encodeURIComponent(url))
       });
-      */
+      */ 
     },
     onMore: function onMore() {
       this.$emit('remove', {
         index: this.index,
         isSys: this.item.isSys,
-        post: this.item.post
+        post: this.item.post,
       }); // eventHub.$emit('remove', {
       //   index: this.index,
       //   post: this.item

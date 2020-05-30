@@ -5,7 +5,7 @@ class TopicController extends BaseController {
     }
     async list(data, context) {
         const { keyword, pageIndex, pageSize } = data
-        const c = db.collection('topics')
+        var c = db.collection('topics')
         if (keyword) {
             c = c.where({
                 title: db.RegExp({
@@ -151,7 +151,6 @@ class TopicController extends BaseController {
         const user = await this.getUserInfo(context.OPENID)
         if (user && (user.userType === 1 || user.grade === 3)) {
             return await db.runTransaction(async t => {
-
                 const topic = await t.collection('topics').add({
                     data: {
                         title, des, iconSrc, nickName,

@@ -29,11 +29,11 @@
   <view class="cell-title">创建话题条件</view> 
   <view class="cell"  bindtap="{{isAuth?'':'userauth'}}">
     <icon type="success" size="16" color="#{{isAuth ? 'ffd100' : '7a8299'}}"></icon>
-    <view>完成学生认证</view>
+    <view>完成学生认证(默认完成认证)</view>
   </view>
   <view class="cell"  bindtap="{{isVip?'':'vipcharge'}}">
     <icon type="success" size="16" color="#{{isVip ? 'ffd100' : '7a8299'}}"></icon>
-    <view>已成为VIP用户</view>
+    <view>成为VIP用户</view>
   </view>
 
   <view class="footer">

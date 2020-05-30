@@ -1051,6 +1051,7 @@ function (_BaseService) {
         item.isSelf = item.from.id === this.userId;
       }
 
+
       if (item.content) {
         item.baseTxt = item.content;
         item.content = this.parseEmoji(item.content);
@@ -1068,17 +1069,23 @@ function (_BaseService) {
   }, {
     key: "_parsePost",
     value: function _parsePost(item) {
+   //   console.log(item)
+   //   console.log(this)
+   
       // item.userType = this.getUserType()
       item.isSys = this.userType === 1;
 
       if (item.user) {
         item.isSelf = this.userId === item.user._id;
         item.user = this.parseUser(item.user);
+        //检查是不是话题广场的拥有者
+        item.isTopicOwnerId = this.userId ===item.post.TopicownerId;
       }
 
       if (item.post && item.post.content && item.post.posType !== 3) {
         item.post.baseTxt = item.post.content;
         item.post.content = this.parseEmoji(item.post.content);
+
       }
 
       if (item.topic) {

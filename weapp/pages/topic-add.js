@@ -29,8 +29,8 @@ _core["default"].page({
         isBinding = _wx$getStorageSync.isBinding,
         userType = _wx$getStorageSync.userType,
         grade = _wx$getStorageSync.grade;
-
-    this.isAuth = isAuth > 0;
+//这个地方为了方便其他人实验 进行了通过
+    this.isAuth =true;// isAuth;
     this.isVip = userType === 1 || grade === 3;
     this.disabled = !this.isAuth || !this.isVip;
   },
@@ -157,8 +157,7 @@ _core["default"].page({
                 topic = _context2.sent;
                 console.log(topic)
 
-                if (topic) {
-                  
+                if (topic._id) {
                   wx.redirectTo({
                     url: '/pages/topic?id=' + topic._id
                   });

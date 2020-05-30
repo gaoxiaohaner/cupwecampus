@@ -3,10 +3,11 @@
   <image src="{{ item.avtater }}" style="width: {{width}}rpx;height: {{width}}rpx;border-radius: {{radius}}rpx;" class="user-avtater"></image>
   <view class="user-info">
     <view class="user-info-top">
+    <!--如果是会员的话即grade==3 如果是学生认证的话 isAuth==true 如果是系统管理员usertype==1-->
       <view class="user-info-nick {{item.grade === 3 ? 'vip' : ''}}">{{item.nick}}</view>
       <image src="/images/renzheng.png" wx:if="{{ item.isAuth }}" class="ic-img"></image><!--学生认证-->
-      <image src="/images/zuozhe.png" wx:if="{{ item.grade > 1 }}" class="ic-img"></image>
-      <image src="/images/vip.png" wx:if="{{ item.userType === 1 }}" class="ic-img"></image>
+      <image src="/images/vip.png" wx:if="{{ item.grade === 3 }}" class="ic-img"></image>
+      <image src="/images/admin.png" wx:if="{{ item.userType ==1 }}" class="ic-img"></image>
     </view>
     <view class="user-info-bottom">
       <view>{{item.gender}}</view>

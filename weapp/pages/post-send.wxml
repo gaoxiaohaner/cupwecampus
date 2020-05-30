@@ -46,10 +46,10 @@
   </view>
   <emoji-input bind_init="_initComponent" height="{{ boardheight }}" hide="{{ bottom === 0 }}" data-wpy-evt="9-12" bindemoji="_proxy" binddel="_proxy"></emoji-input>
   <view wx:if="{{ posType !== 2 }}" style="bottom: {{bottom}}px;" class="tool">
-    <view wx:if="{{ location }}" class="line">
+    <view wx:if="{{ location.latitude }}" class="line">
       <view wx:if="{{ location }}" class="location">
         <text class="icon icon-location"></text>
-        <text class="txt">{{location.name}}</text>
+        <text class="txt">{{location.address+location.name}}</text>
         <text data-wpy-evt="9-14" catchtap="_proxy" class="icon icon-del-line"></text>
       </view>
     </view>

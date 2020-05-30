@@ -81,12 +81,12 @@ _core["default"].page({
     return _asyncToGenerator(
     /*#__PURE__*/
     _regeneratorRuntime2["default"].mark(function _callee() {
-      var type, id, topicId, title, index, rect, sys;
+      var type, id, topicId, title,TopicownerId, index, rect, sys;
       return _regeneratorRuntime2["default"].wrap(function _callee$(_context) {
         while (1) {
           switch (_context.prev = _context.next) {
             case 0:
-              type = q.type, id = q.id, topicId = q.topicId, title = q.title;
+              type = q.type, id = q.id, topicId = q.topicId, title = q.title,TopicownerId=q.TopicownerId;
 
               index = parseInt(type) || 0;
               _this.onChoicePostType(_this.types[index - 1]);
@@ -96,7 +96,8 @@ _core["default"].page({
               if (topicId) {
                 _this.topic = {
                   id: topicId,
-                  title: decodeURI(title)
+                  title: decodeURI(title),
+                  TopicownerId:TopicownerId,
                 };
               }
 
@@ -250,11 +251,12 @@ _core["default"].page({
                     return img.path != null;
                   }),
                   posType: _this4.posType,
+                  TopicownerId:_this4.topic.TopicownerId,
                   topicId: _this4.topic.id,
                   topicTitle: _this4.topic.title,
-                  latitude: _this4.location.latitude,
-                  longitude: _this4.location.longitude,
-                  address: _this4.location.address
+                  latitude: !_this4.location.latitude?'':_this4.location.latitude,
+                  longitude: !_this4.location.longitude?'':_this4.location.longitude,
+                  address:  !_this4.location.address?'':_this4.location.address+_this4.location.name,
                 };
                 _context2.next = 90;
                 break;
@@ -272,6 +274,7 @@ _core["default"].page({
                   articleImg: _this4.article.imageSrc,
                   posType: _this4.posType,
                   topicId: _this4.topic.id,
+                  TopicownerId:_this4.topic.TopicownerId,
                   topicTitle: _this4.topic.title
                 };
                 _context2.next = 90;
@@ -389,6 +392,7 @@ _core["default"].page({
                   imgs: images.length ? images : null,
                   posType: _this4.posType,
                   topicId: _this4.topic.id,
+                  TopicownerId:_this4.topic.TopicownerId,
                   topicTitle: _this4.topic.title
                 };
                 _context2.next = 90;
@@ -400,6 +404,7 @@ _core["default"].page({
                     content: _this4.content,
                     posType: _this4.posType,
                     topicId: _this4.topic.id,
+                    TopicownerId:_this4.topic.TopicownerId,
                     topicTitle: _this4.topic.title
                   };
                 }
@@ -773,6 +778,7 @@ _core["default"].page({
         altitude: true,
         isHighAccuracy: true,
         success: function success(res) {
+          console.log(res)
           var latitude = res.latitude,
               longitude = res.longitude;
           wx.chooseLocation({

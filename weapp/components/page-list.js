@@ -410,7 +410,7 @@ _core["default"].component({
           post = _ref.post,
           isSys = _ref.isSys;
       wx.showActionSheet({
-        itemList: isSys ? ['删除', post.isRecommend ? '取消推荐' : '设为推荐'] : ['删除'],
+        itemList: isSys||post.TopicownerId ? ['删除', post.isRecommend ? '取消推荐' : '设为推荐'] :  ['删除'],
         itemColor: '#d81e06',
         success: function success(res) {
           if (res.tapIndex === 0) {

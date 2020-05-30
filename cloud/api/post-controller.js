@@ -22,6 +22,7 @@ class PostController extends BaseController {
       video,
       audio,
       topicId,
+      TopicownerId,
       topicTitle,
       latitude,
       longitude,
@@ -71,6 +72,7 @@ class PostController extends BaseController {
           video,
           audio,
           topicId,
+          TopicownerId,
           topicTitle,
           latitude,
           longitude,
@@ -395,8 +397,8 @@ class PostController extends BaseController {
       .get().then(res => res.data).catch(() => [])
     for (const _item of _items) {
       const user = await this.getUserInfo(_item.userId)
-      const likers = await this._getLikers(_item.id)
-      const comment = await this._getHotComment(_item.id)
+      const likers = await this._getLikers(_item._id)
+      const comment = await this._getHotComment(_item._id)
       items.push({
         post: _item,
         user,
@@ -1148,6 +1150,7 @@ class PostController extends BaseController {
     }
     return _likers
   }
+
   async _getHotComment(postId) {
     return await db.collection('postComments').where(_.and([{
       postId

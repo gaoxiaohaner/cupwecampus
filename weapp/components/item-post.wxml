@@ -8,7 +8,7 @@
       </button>
     </view>
     <block wx:else>
-      <view slot="action" wx:if="{{ item.isSelf || item.isSys }}" data-wpy-evt="63-1" catchtap="_proxy" class="btn-more">
+      <view slot="action" wx:if="{{ item.isSelf || item.isSys|| item.isTopicOwnerId}}" data-wpy-evt="63-1" catchtap="_proxy" class="btn-more">
         <text class="icon icon-more"></text>
       </view>
     </block>

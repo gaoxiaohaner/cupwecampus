@@ -22,6 +22,11 @@ _core["default"].component({
           url: '/pages/gender'
         });
       } else {
+        if(this.btnTxt=="去创建一个新话题"){
+          wx.navigateTo({
+            url: '/pages/topic-add',
+          })
+        }
         this.$emit('action');
       }
     }
