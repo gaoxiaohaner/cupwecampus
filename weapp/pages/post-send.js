@@ -69,7 +69,11 @@ _core["default"].page({
     hasUpload: false,
     isAuth: true,
     boardheight: 0,
-    location: null
+    location:{
+      latitude:null,
+      longitude: null,
+      address: null,
+    },
   },
   onLoad: function onLoad(q) {
     var _this = this;
