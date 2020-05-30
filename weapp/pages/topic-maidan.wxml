@@ -1,0 +1,10 @@
+
+<view class="container">
+  <list bind_init="_initComponent" data-ref="list" controller="topic" action="searchTopic" enableTips="{{ false }}" refresherEnabled="{{ false }}" isInit="{{ true }}" scrollY="{{ true }}" pageSize="{{ 20 }}">
+    <searchbar bind_init="_initComponent" placeholder="输入话题" data-wpy-evt="20-0" bindinput="_proxy" bindcancel="_proxy"></searchbar>
+  </list>
+  <view hover-class="btn-hover" data-wpy-evt="20-2" bindtap="_proxy" class="btn-add">
+    <view class="icon icon-add"></view>
+    <view>创建话题</view>
+  </view>
+</view>

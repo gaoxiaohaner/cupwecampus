@@ -1,0 +1,129 @@
+
+<view class="container">
+  <view wx:if="{{ user.isBinding }}" data-wpy-evt="6-0" bindtap="_proxy" class="info">
+    <view class="avtater">
+      <image src="{{ user.avtater }}"></image>
+    </view>
+    <view class="content">
+      <view class="nick">{{user.nick}}</view>
+      <view class="des">
+        <text>
+          <text class="label">获赞</text>
+          <text class="value">{{user.thumbsNum}}</text>
+        </text>
+        <text>
+          <text class="label">关注</text>
+          <text class="value">{{user.followNum}}</text>
+        </text>
+        <text>
+          <text class="label">粉丝</text>
+          <text class="value">{{user.fansNum}}</text>
+        </text>
+      </view>
+    </view>
+    <view class="right">
+      <view>主页</view>
+      <view class="icon icon-arrow-right"></view>
+    </view>
+  </view>
+  <button wx:else data-wpy-evt="6-1" catchtap="_proxy" class="info">
+    <view class="avtater">
+      <image src="../images/avtater_empty.svg"></image>
+    </view>
+    <view class="content">
+      <view class="nick">未登录</view>
+      <view class="des">登录后可编辑个人资料</view>
+    </view>
+    <view class="right">
+      <view class="login-txt">{{isqq ? '点击QQ授权' : '点击微信授权'}}</view>
+      <view class="icon icon-arrow-right"></view>
+    </view>
+  </button>
+  <view data-wpy-evt="6-2" bindtap="_proxy" class="assets">
+    <view class="assets-title">
+      <image src="../images/ic_wallet.svg"></image>
+      <view>总资产：¥ {{assets}}</view>
+    </view>
+    <view class="assets-des">
+      <text>查看</text>
+      <text class="icon icon-arrow-right"></text>
+    </view>
+  </view>
+  <view class="header">
+    <view class="item">
+      <view data-wpy-evt="6-3" bindtap="_proxy" class="item-ic plane">
+        <view class="icon icon-tucaohover"></view>
+      </view>
+      <view class="item-title">吐槽机</view>
+    </view>
+    <view data-wpy-evt="6-4" bindtap="_proxy" class="item">
+      <view class="item-ic sys">
+        <view class="icon icon-article"></view>
+      </view>
+      <view class="item-title">我的帖子</view>
+    </view>
+    <view data-wpy-evt="6-5" bindtap="_proxy" class="item">
+      <view class="item-ic thumbup">
+        <view class="icon icon-pinglun"></view>
+      </view>
+      <view class="item-title">我的评论</view>
+    </view>
+    <view data-wpy-evt="6-6" bindtap="_proxy" class="item">
+      <view class="item-ic fens">
+        <view class="icon icon-thumbup-fill"></view>
+      </view>
+      <view class="item-title">我赞过的</view>
+    </view>
+  </view>
+  <view class="cells">
+    <button data-wpy-evt="6-7" bindtap="_proxy" class="cell">
+      <view class="left">
+        <view class="title">编辑个人信息</view>
+        <view class="des">完善个人信息让更多同学了解你</view>
+      </view>
+      <view class="right">
+        <view class="icon icon-arrow-right"></view>
+      </view>
+    </button>
+    <button wx:if="{{ !user.isAuth }}" data-wpy-evt="6-8" bindtap="_proxy" class="cell">
+      <view class="left">
+        <view class="title">学生认证</view>
+        <view class="des">学生认证后可解锁更多特权</view>
+      </view>
+      <view class="right">
+        <view class="auth">未认证</view>
+        <view class="icon icon-arrow-right"></view>
+      </view>
+    </button>
+  </view>
+  <view class="cells">
+    <button open-type="{{isqq ? 'openGroupProfile' : 'contact'}}" data-wpy-evt="6-9" bindtap="_proxy"  group-id="1006532345" class="cell">
+      <view class="left">
+        <view class="title">客服小石</view>
+        <view class="des">投稿,帮助,疑问都可以点击这里</view>
+      </view>
+      <view class="right">
+        
+        <view class="icon icon-arrow-right"></view>
+      </view>
+    </button>
+    <button open-type="feedback" class="cell">
+      <view class="left">
+        <view class="title">意见反馈</view>
+        <view class="des">你的意见和建议,是对我们最大的支持</view>
+      </view>
+      <view class="right">
+        <view class="icon icon-arrow-right"></view>
+      </view>
+    </button>
+    <button open-type="share" class="cell">
+      <view class="left">
+        <view class="title">推荐给好友</view>
+        <view class="des">觉得好玩,就分享给你身边的同学吧</view>
+      </view>
+      <view class="right">
+        <view class="icon icon-arrow-right"></view>
+      </view>
+    </button>
+  </view>
+</view>

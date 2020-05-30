@@ -1,0 +1,4 @@
+
+<view class="container">
+  <list bind_init="_initComponent" controller="tip" action="trade" isInit="{{ true }}" pageSize="{{ 20 }}" refresherEnabled="{{ false }}"></list>
+</view>

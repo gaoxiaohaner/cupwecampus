@@ -1,0 +1,49 @@
+.page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+.page.page-state-1 .page-loading {
+  display: inline-block;
+  font-size: 26rpx;
+  color: #b2b2b2;
+}
+.page.page-state-2,
+.page.page-state-4 {
+  text-align: center;
+}
+.page.page-state-2 image,
+.page.page-state-4 image {
+  width: 200rpx;
+  height: 200rpx;
+}
+.page.page-state-2 .page-error,
+.page.page-state-4 .page-error {
+  display: inline-block;
+  font-size: 26rpx;
+  color: #b2b2b2;
+}
+.page.page-state-2 .page-error .error,
+.page.page-state-4 .page-error .error {
+  margin-bottom: 30rpx;
+}
+.page-footer {
+  padding: 30rpx 0rpx;
+  text-align: center;
+  font-size: 26rpx;
+  color: #b2b2b2;
+}
+.tips {
+  position: absolute;
+  background: #fae37c;
+  box-shadow: 4rpx 8rpx 12rpx rgba(250, 227, 124, 0.6);
+  font-size: 28rpx;
+  width: 320rpx;
+  text-align: center;
+  padding: 16rpx 0rpx;
+  border-radius: 60rpx;
+  left: 215rpx;
+  transition: all 0.3s;
+}
+

@@ -1,0 +1,16 @@
+
+<view class="container">
+  <navigation-bar bind_init="_initComponent" ext-class="bar-back" back="{{ true }}" background="transparent">
+    <view slot="center">
+      <tabs bind_init="_initComponent" extClass="my-tabs" auto="{{ true }}" labels="{{ labels }}" selectedIndex="{{ tabIndex }}" data-wpy-evt="18-0" bindchange="_proxy"></tabs>
+    </view>
+  </navigation-bar>
+  <swiper current="{{ current }}" data-wpy-evt="18-1" bindchange="_proxy" style="height: calc(100vh - {{navigationHeight}}px);">
+    <swiper-item>
+      <list bind_init="_initComponent" controller="user" action="fans" objId="{{ userId }}" dataType="{{ 0 }}" isInit="{{ init0 }}" pageSize="{{ 20 }}" refresherEnabled="{{ false }}"></list>
+    </swiper-item>
+    <swiper-item>
+      <list bind_init="_initComponent" controller="user" action="fans" objId="{{ userId }}" dataType="{{ 1 }}" isInit="{{ init1 }}" pageSize="{{ 20 }}" refresherEnabled="{{ false }}"></list>
+    </swiper-item> 
+  </swiper>
+</view>

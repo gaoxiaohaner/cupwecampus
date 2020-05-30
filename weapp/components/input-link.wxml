@@ -1,0 +1,18 @@
+
+<screen-dialog bind_init="_initComponent" show="{{ show }}" data-wpy-evt="71-0" bindclose="_proxy">
+  <view slot="footer" class="footer">
+    <view class="input {{isError ? 'err' : ''}}">
+      <view class="input-title">添加链接</view>
+      <view class="input-des">可在此添加(公众号|知乎专栏|简书)文章链接,解析后更直观</view>
+      <input value="{{ url }}" bindinput="_proxy" data-model-id="9" placeholder="请输入(公众号|知乎专栏｜简书)文章链接" data-wpy-evt="71-1" bindfocus="_proxy" bindblur="_proxy"></input>
+      <view wx:if="{{ link }}" data-wpy-evt="71-3" catchtap="_proxy" class="input-link">
+        <view class="link-des">粘贴最近复制的链接</view>
+        <view class="link-web">{{link}}</view>
+      </view>
+    </view>
+    <view wx:if="{{ isError }}" class="input-error">请输入(公众号|知乎专栏|简书)文章链接</view>
+    <view style="bottom:{{bottom ? bottom + 'px' : '40rpx'}}" class="footer-action">
+      <button disabled="{{ !url }}" hover-class="btn-hover" data-wpy-evt="71-4" bindtap="_proxy" class="btn">添加</button>
+    </view>
+  </view>
+</screen-dialog>

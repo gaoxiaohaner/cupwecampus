@@ -1,0 +1,19 @@
+
+<view hover-class="item-hover" data-wpy-evt="74-0" bindtap="_proxy" class="item">
+  <image src="{{ item.iconSrc }}"></image>
+  <view class="item-content">
+    <view class="item-title">{{item.title}}</view>
+    <view class="item-des">{{item.des}}</view>
+  </view>
+  <view wx:if="{{ showBtn }}" data-wpy-evt="74-1" catchtap="_proxy" class="item-action">
+    <button class="btn-follow {{item.hasFollow ? 'has' : ''}}">
+      <text class="icon icon-{{item.hasFollow ? 'follow' : 'add'}}"></text>
+      <text>{{item.hasFollow ? '已关注' : '关注'}}</text>
+    </button>
+  </view>
+  <block wx:else>
+    <view class="item-action">
+      <slot></slot>
+    </view>
+  </block>
+</view>

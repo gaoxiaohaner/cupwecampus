@@ -1,0 +1,23 @@
+
+<view class="container">
+  <navigation-bar bind_init="_initComponent" back="{{ false }}" background="transparent">
+    <view slot="left">
+      <tabs bind_init="_initComponent" extClass="my-tabs" labels="{{ labels }}" selectedIndex="{{ tabIndex }}" data-wpy-evt="5-0" bindchange="_proxy"></tabs>
+    </view>
+  </navigation-bar>
+  <swiper current="{{ current }}" data-wpy-evt="5-1" bindchange="_proxy" style="height: calc(100vh - {{navigationHeight}}px);">
+    <swiper-item>
+      <list bind_init="_initComponent" controller="message" action="list" isInit="{{ init0 }}" scrollY="{{ true }}" pageSize="{{ 15 }}" showTip="{{ true }}">
+        <view class="list">
+          <view hover-class="clean-hover" data-wpy-evt="5-2" bindtap="_proxy" class="clean">
+            <view class="icon icon-clean"></view>
+            <view>清除未读</view>
+          </view>
+        </view>
+      </list>
+    </swiper-item>
+    <swiper-item> 
+      <list bind_init="_initComponent" controller="message" action="sysList" isInit="{{ init1 }}" scrollY="{{ true }}" showTip="{{ false }}" pageSize="{{ 10 }}"></list>
+    </swiper-item>
+  </swiper>
+</view>

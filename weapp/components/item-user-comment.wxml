@@ -1,0 +1,26 @@
+
+<view data-wpy-evt="84-0" bindtap="_proxy" class="item">
+  <user-item bind_init="_initComponent" item="{{ item.user }}"></user-item>
+  <view class="item-content">
+    <view class="item-txt">
+      <block wx:for="{{ item.comment.content }}" wx:for-index="index" wx:for-item="obj" wx:key="index">
+        <text wx:if="{{ obj.type === 0 }}" space="nbsp" class="{{showInfo ? 'simple' : ''}}">{{obj.value}}</text>
+        <image wx:else src="{{ obj.src }}" class="icon-mini-img"></image>
+      </block>
+    </view>
+    <view wx:if="{{ item.comment.imgs }}" class="comment-imgs">
+      <view wx:for="{{ item.comment.imgs }}" wx:for-index="index" wx:for-item="img" wx:key="index" key="{{ index }}" class="comment-img-item">
+        <image src="{{ img.path }}" mode="aspectFill" lazy-load="{{ true }}" data-wpy-evt="84-1" catchtap="_proxy" data-wpytap-a="{{ index }}"></image>
+        <view wx:if="{{ img.height > 1920 }}" class="img-des">长图</view>
+      </view>
+    </view>
+    <view wx:if="{{ item.originComment }}" class="item-source">
+      <image src="{{ item.originComment.imgs[0].path }}" mode="aspectFill" wx:if="{{ item.originComment && item.originComment.imgs && item.originComment.imgs.length }}"></image>
+      <view class="item-source-txt">{{item.originComment.baseTxt}}</view>
+    </view>
+    <view wx:elif="{{ item.post }}" class="item-source">
+      <image src="{{ item.post.imgs[0].path }}" mode="aspectFill" wx:if="{{ item.post && item.post.imgs && item.post.imgs.length }}"></image>
+      <view class="item-source-txt">{{item.post.content || item.post.introduction}}</view>
+    </view>
+  </view>
+</view>

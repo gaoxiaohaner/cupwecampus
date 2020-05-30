@@ -1,0 +1,48 @@
+
+<mp-page bind_init="_initComponent" state="{{ state }}" triggered="{{ triggered }}" num="{{ num }}" scrollY="{{ scrollY }}" refresherEnabled="{{ refresherEnabled }}" showBtn="{{ true }}" enableTips="{{ enableTips }}" showLoadMore="{{ hasMore }}" emptyBtnTxt="{{ emptyBtnTxt }}" data-wpy-evt="57-0" bindemptyTap="_proxy" bindrelaod="_proxy" bindscrolltolower="_proxy" bindrefresherrefresh="_proxy" bindrefresherrestore="_proxy" bindrefresherpulling="_proxy">
+  <view wx:if="{{ showTip }}" class="notice-tip">
+    <view class="tip-main">
+      <view class="tip-title">订阅推送通知</view>
+      <view class="tip-des">不再错过重要消息，第一时间收到提醒</view>
+    </view>
+    <view data-wpy-evt="57-6" bindtap="_proxy" class="btn-action">订阅</view>
+  </view>
+  <slot></slot>
+  <block wx:if="{{ controller === 'post' }}">
+    <block wx:if="{{ action === 'recommend' || action === 'listForUser' || action === 'listForTopic' || action === 'listForSchool' }}">
+      <item-post bind_init="_initComponent" wx:for="{{ items }}" wx:for-index="index" wx:for-item="item" wx:key="index" key="{{ item.post.id }}" item="{{ item }}" index="{{ index }}" data-wpy-evt="57-7" bindshare="_proxy" bindremove="_proxy"></item-post>
+    </block>
+    <block wx:elif="{{ action==='commentsForUser' }}">
+      <item-comment bind_init="_initComponent" wx:for="{{ items }}" wx:for-index="index" wx:for-item="item" wx:key="index" key="{{ item.comment.id }}" item="{{ item }}" index="{{ index }}"></item-comment>
+    </block>
+    <block wx:elif="{{ action === 'likesForUser' }}">
+      <block wx:for="{{ items }}" wx:for-index="index" wx:for-item="item" wx:key="index" key="{{ index }}">
+        <item-post bind_init="_initComponent" item="{{ item }}" index="{{ index }}" wx:if="{{ item.post }}" data-wpy-evt="57-9" bindshare="_proxy" bindremove="_proxy"></item-post>
+        <view wx:else style=" margin-bottom: 30rpx;">
+          <item-comment bind_init="_initComponent" item="{{ item }}" index="{{ index }}"></item-comment>
+        </view>
+      </block>
+    </block>
+  </block>
+  <block wx:elif="{{ controller === 'topic' }}">
+    <item-topic bind_init="_initComponent" wx:for="{{ items }}" wx:for-index="index" wx:for-item="item" wx:key="index" key="{{ item.id }}" item="{{ item }}">
+      <view class="item-num">{{item.followCount}}{{item.nickName}}</view>
+    </item-topic>
+  </block>
+  <block wx:elif="{{ controller === 'tip' }}">
+    <item-trade bind_init="_initComponent" wx:for="{{ items }}" wx:for-index="index" wx:for-item="item" wx:key="index" key="{{ item.id }}" item="{{ item }}"></item-trade>
+  </block> 
+  <block wx:elif="{{ controller === 'message' }}">
+    <block wx:if="{{ action === 'list' }}">
+      <item-notice bind_init="_initComponent" wx:for="{{ items }}" wx:for-index="index" wx:for-item="item" wx:key="index" key="{{ item.id }}" item="{{ item }}"></item-notice>
+    </block>
+    <block wx:else> 
+      <item-sys-notice bind_init="_initComponent" wx:for="{{ items }}" wx:for-index="index" wx:for-item="item" wx:key="index" key="{{ item.id }}" item="{{ item }}"></item-sys-notice>
+    </block>
+  </block>
+  <block wx:elif="{{ controller === 'user' }}">
+    <view wx:for="{{ items }}" wx:for-index="index" wx:for-item="item" wx:key="index" key="{{ item.id }}" class="user-item">
+      <item-user bind_init="_initComponent" item="{{ item.user.data[0] }}" showNum="{{ true }}" width="{{ 96 }}" radius="{{ 96 }}"></item-user>
+    </view>
+  </block> 
+</mp-page>

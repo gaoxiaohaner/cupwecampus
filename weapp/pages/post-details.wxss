@@ -1,0 +1,185 @@
+.bar-ext .weui-navigation-bar__left {
+  padding-left: 16px;
+}
+.bar-ext .user-back {
+  display: flex;
+}
+.bar-ext .user-back .btn-back {
+  width: 64rpx;
+  height: 72rpx;
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='24' viewBox='0 0 12 24'%3E  %3Cpath fill-opacity='.9' fill-rule='evenodd' d='M10 19.438L8.955 20.5l-7.666-7.79a1.02 1.02 0 0 1 0-1.42L8.955 3.5 10 4.563 2.682 12 10 19.438z'/%3E%3C/svg%3E");
+  background-position: 0% 50%;
+  background-size: 44%;
+  background-repeat: no-repeat;
+}
+.bar-ext .navigation-title {
+  font-size: 34rpx;
+}
+.article {
+  background: #fff;
+  padding: 30rpx 50rpx;
+}
+.article .article-title {
+  font-size: 34rpx;
+  font-weight: bold;
+  margin-bottom: 30rpx;
+}
+.article editor {
+  height: auto;
+  font-size: 34rpx;
+  line-height: 56rpx;
+  color: #353535;
+}
+.post-share {
+  background: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40rpx 20rpx;
+  margin-top: -30rpx;
+}
+.post-share button {
+  margin-right: 30rpx;
+  font-size: 32rpx;
+  display: flex;
+  align-items: center;
+  color: #13100e;
+}
+.post-share button .icon {
+  margin-right: 10rpx;
+  font-size: 36rpx;
+}
+.post-share button::after {
+  border: none;
+}
+.post-share button.btn-hover {
+  background: rgba(0, 0, 0, 0.3);
+}
+.post-share button:last-child {
+  margin-left: 0rpx;
+}
+.reward {
+  background: #fff;
+}
+.post-question-tool {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 40rpx 20rpx;
+  padding-top: 0rpx;
+}
+.post-question-tool .btn-txt {
+  display: flex;
+  align-items: center;
+  font-size: 28rpx;
+  color: #409eff;
+}
+.post-question-tool .btn-txt .icon-edit {
+  margin-right: 10rpx;
+}
+.topic {
+  padding: 20rpx;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #ffffff;
+  margin: 20rpx 0rpx;
+  font-size: 34rpx;
+  color: #409eff;
+}
+.topic image {
+  width: 84rpx;
+  height: 84rpx;
+  border-radius: 10rpx;
+}
+.topic .topic-content {
+  flex-grow: 1;
+  margin-left: 30rpx;
+}
+.topic .topic-content .title {
+  color: #000;
+  font-size: 32rpx;
+  margin-bottom: 10rpx;
+}
+.topic .topic-content .topic-num {
+  display: flex;
+  align-items: center;
+}
+.topic .topic-content .num {
+  color: #b2b2b2;
+  font-size: 26rpx;
+  margin-right: 20rpx;
+}
+.topic .topic-content .num text {
+  margin-right: 8rpx;
+}
+.topic .title {
+  flex-grow: 1;
+}
+.topic .des {
+  font-size: 24rpx;
+}
+.comments {
+  background: #ffffff;
+}
+.comments .comments-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0rpx 20rpx;
+}
+.comments .comments-top .title {
+  font-size: 32rpx;
+}
+.comments .comments-top .zan {
+  display: flex;
+  align-items: center;
+  font-size: 24rpx;
+  color: #b2b2b2;
+  margin: 30rpx 0rpx;
+}
+.comments .comments-top .zan image {
+  width: 36rpx;
+  height: 36rpx;
+  border-radius: 36rpx;
+  border: #ffffff solid 4rpx;
+  margin-right: -14rpx;
+}
+.comments .comments-top .zan .zan-des {
+  margin-left: 24rpx;
+}
+.btn-answer {
+  position: fixed;
+  bottom: 60rpx;
+  right: 30rpx;
+  width: 96rpx;
+  height: 96rpx;
+  line-height: 96rpx;
+  text-align: center;
+  background: #fae37c;
+  border-radius: 96rpx;
+  box-shadow: 2px 3px 6px rgba(0, 0, 0, 0.1);
+}
+.btn-answer .icon {
+  font-size: 56rpx;
+  transition: all 0.3s;
+}
+.btn-follow {
+  font-size: 28rpx;
+  background: #fae37c;
+  padding: 10rpx 30rpx;
+  border-radius: 8rpx;
+  display: flex;
+  align-items: center;
+  line-height: normal;
+}
+.btn-follow::after {
+  border: none;
+}
+.btn-follow.has {
+  box-shadow: none;
+  background: #f8f8f8;
+  color: #b2b2b2;
+  font-size: 26rpx;
+}
+

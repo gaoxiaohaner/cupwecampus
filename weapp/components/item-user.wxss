@@ -1,0 +1,63 @@
+.user {
+  display: flex;
+  align-items: center;
+}
+.user .user-avtater {
+  flex-shrink: 0;
+  width: 64rpx;
+  height: 64rpx;
+  border-radius: 8rpx;
+}
+.user .user-info {
+  flex-grow: 1;
+  margin-left: 20rpx;
+}
+.user .user-info .user-info-top {
+  display: flex;
+  align-items: center;
+}
+.user .user-info .user-info-top .user-info-nick {
+  font-size: 26rpx;
+  color: #606266;
+  max-width: 260rpx;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  /*设置文本行数限制*/
+  -webkit-box-orient: vertical;
+  /*设置文本排列方式*/
+}
+.user .user-info .user-info-top .user-info-nick.vip {
+  color: #d81e06;
+}
+.user .user-info .user-info-top .ic-img {
+  width: 28rpx;
+  height: 28rpx;
+  margin-left: 8rpx;
+}
+.user .user-info .user-info-bottom {
+  display: flex;
+  align-items: center;
+  margin-top: 6rpx;
+  color: #b2b2b2;
+  font-size: 22rpx;
+}
+.user .user-num {
+  margin-top: 8rpx;
+}
+.user .user-num .label {
+  color: #b2b2b2;
+  font-size: 24rpx;
+  margin-right: 12rpx;
+}
+.user .user-num .value {
+  color: #000;
+  font-size: 28rpx;
+  margin-right: 30rpx;
+}
+.user .user-action {
+  height: 64rpx;
+  line-height: 64rpx;
+}
+

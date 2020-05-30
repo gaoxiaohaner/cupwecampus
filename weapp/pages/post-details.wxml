@@ -1,0 +1,103 @@
+
+<view class="container">
+  <navigation-bar bind_init="_initComponent" ext-class="bar-ext" back="{{ !showUser }}" background="#ffffff">
+    <view slot="left" wx:if="{{ showUser }}" class="user-back">
+      <view data-wpy-evt="7-0" bindtap="_proxy" class="btn-back"></view>
+      <user bind_init="_initComponent" item="{{ post.user }}" style="opacity:1;transition: all 0.3s;"></user>
+    </view>
+    <view slot="center" wx:else class="navigation-title">帖子详情</view>
+  </navigation-bar>
+  <view style="height: calc(100vh - {{navigationHeight}}px - {{post.post.posType !== 3 ? 100 : 0}}rpx);">
+    <mp-page bind_init="_initComponent" state="{{ state }}" refresherEnabled="{{ false }}" toView="{{ toView }}" error="帖子不存在了" data-wpy-evt="7-1" bindscroll="_proxy" bindscrolltolower="_proxy">
+      <post-item bind_init="_initComponent" showTool="{{ false }}" showTopice="{{ false }}" showFollow="{{ true && !post.isSelf }}" item="{{ post }}" wx:if="{{ post.post.posType === 0 || post.post.posType === 1 || post.post.posType === 3 }}" data-wpy-evt="7-3" bindfollow="_proxy"></post-item>
+      <block wx:elif="{{ post.post.posType === 4 || post.post.posType === 2 }}">
+        <view class="article"> 
+          <view class="article-title">{{post.post.articleTitle}}</view>
+          <view wx:if="{{ post.post.posType === 4 }}" class="post-question-tool">
+            <view hover-class="btn-hover" data-wpy-evt="7-4" bindtap="_proxy" class="btn-txt">
+              <view class="icon icon-edit"></view>
+              <view>我来回答</view>
+            </view>
+            <view data-wpy-evt="7-5" bindtap="_proxy" class="btn-txt">
+              <view>更多回答</view>
+              <view class="icon icon-arrow-right"></view>
+            </view>
+          </view>
+          <view style="margin-bottom: 30rpx;">
+            <user bind_init="_initComponent" item="{{ post.user }}">
+              <view slot="action" wx:if="{{ !post.isSelf }}">
+                <button data-wpy-evt="7-6" catchtap="_proxy" class="btn-follow {{post.hasFollow ? 'has' : ''}}">
+                  <text class="icon icon-{{post.hasFollow ? 'follow' : 'add'}}"></text>
+                  <text>{{post.hasFollow ? '已关注' : '关注'}}</text>
+                </button>
+              </view>
+            </user>
+          </view>
+          <editor id="editor" read-only="true" data-wpy-evt="7-7" bindready="_proxy"></editor>
+        </view>
+      </block>
+      <view wx:if="{{ post.post.posType === 3 }}" class="post-share">
+        <button open-type="share" hover-class="btn-hover">
+          <view class="icon icon-user-add"></view>
+          <view>邀请好友回答</view>
+        </button>
+        <button hover-class="btn-hover" data-wpy-evt="7-8" bindtap="_proxy">
+          <view class="icon icon-edit"></view>
+          <view>我来回答</view>
+        </button>
+      </view>
+      <block wx:else>
+        <reward bind_init="_initComponent" isSelf="{{ post.isSelf }}" shell="{{ post.post.shell }}" postId="{{ post.post.id }}" toId="{{ post.user.id }}"></reward>
+        <view class="post-share">
+          <button open-type="share" hover-class="btn-hover">
+            <view class="icon icon-{{isqq ? 'QQ' : 'weixin'}}"></view>
+            <view>{{isqq ? '分享至QQ' : '分享至微信'}}</view>
+          </button>
+          <button hover-class="btn-hover" data-wpy-evt="7-9" bindtap="_proxy">
+            <view class="icon icon-{{isqq ? 'zone' : 'circle'}}"></view>
+            <view>{{isqq ? '发表到说说' : '分享至朋友圈'}}</view>
+          </button>
+        </view>
+      </block>
+      <view slot="other">
+        <view wx:if="{{ post.topic }}" id="topic" data-wpy-evt="7-10" bindtap="_proxy" class="topic">
+          <image src="{{ post.topic.iconSrc }}"></image>
+          <view class="topic-content">
+            <view class="title">#{{post.topic.title}}</view>
+            <view class="topic-num">
+              <view class="num">
+                <text>{{post.topic.followCount}}</text>
+                {{post.topic.nickName}}
+              </view>
+              <view class="num">
+                <text>{{post.topic.postCount}}</text>帖子
+              </view>
+            </view>
+          </view>
+          <view class="des">更多</view>
+          <view class="icon icon-arrow-right"></view>
+        </view>
+        <view wx:if="{{ post.post.posType !== 3 }}" class="comments">
+          <view class="comments-top">
+            <view class="title">评论({{post.post.commentCount}})</view>
+            <view class="zan">
+              <image wx:for="{{ post.likers }}" wx:for-index="index" wx:for-item="img" wx:key="index" src="{{ img }}" key="{{ index }}"></image>
+              <view class="zan-des">{{post.post.thumbsCount}}人赞了</view>
+            </view>
+          </view>
+          <list-comments bind_init="_initComponent" data-ref="list" likeType="{{ 0 }}"></list-comments>
+        </view>
+        <block wx:else>
+          <list-answers bind_init="_initComponent" data-ref="answers"></list-answers>
+        </block>
+      </view>
+    </mp-page>
+  </view>
+  <block wx:if="{{ post.post.posType !== 3 && state === 2 }}">
+    <comment-action bind_init="_initComponent" toId="{{ post.user.id }}" postId="{{ post.post.id }}" likeType="{{ 0 }}" isLike="{{ post.hasLike }}" thumbsCount="{{ post.post.thumbsCount }}" commentCount="{{ post.post.commentCount }}" data-wpy-evt="7-11" bindshowInput="_proxy" bindlike="_proxy" bindcommentTap="_proxy"></comment-action>
+    <comment-input bind_init="_initComponent" show="{{ showInput }}" commenType="{{ 0 }}" postId="{{ post.post.id }}" toId="{{ post.user.id }}" data-wpy-evt="7-14" bindhide="_proxy" bindcomment="_proxy"></comment-input>
+  </block>
+  <view wx:if="{{ post.post.posType === 3 }}" data-wpy-evt="7-16" bindtap="_proxy" class="btn-answer">
+    <text class="icon icon-write"></text>
+  </view>
+</view>

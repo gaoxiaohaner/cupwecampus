@@ -1,0 +1,55 @@
+
+<view class="container">
+  <view class="money">
+    <view class="title">总资产(钻和贝)</view>
+    <view class="value">
+      <view>{{user.drill + user.shell}}</view>
+      <view class="des">
+        {{assets}}
+        <text class="flag">元</text>
+      </view>
+    </view>
+    <view class="list">
+      <view class="item">
+        <view class="item-title icon icon-beike">石子贝</view>
+        <view class="item-value">{{user.shell}}</view>
+        <view data-wpy-evt="24-0" bindtap="_proxy" class="item-action">
+          <text>
+            <text>转钻</text>
+            <text class="icon icon-arrow-right"></text>
+          </text>
+        </view>
+        <view class="item-des">用户打赏的石子钻直接转换为贝,石子贝可变现</view>
+      </view>
+      <view class="item">
+        <view class="item-title icon icon-drill-full">石子钻</view>
+        <view class="item-value">{{user.drill}}</view>
+        <view class="item-action">只能用于打赏</view>
+        <view class="item-des">目前可通过石子贝转化成钻,好内容能获得更多流量支持</view>
+      </view>
+    </view>
+    
+  </view>
+  <view class="cells">
+    <view hover-class="cell-hover" data-wpy-evt="24-1" bindtap="_proxy" class="cell">
+      <view class="icon icon-beike ic"></view>
+      <view class="title">石子贝变现</view>
+      <view class="value"></view>
+      <view class="icon icon-arrow-right"></view>
+    </view>
+
+    <view hover-class="cell-hover" bindtap="{{user.userType==1?'':'vipcharge'}}" class="cell">
+      <view class="icon icon-vip ic"></view>
+      <view class="title">{{user.userType==0?'充值会员':'您已是会员'}}</view>
+      <view class="value"></view>
+      <view class="icon icon-arrow-right"></view>
+    </view>
+
+    <view hover-class="cell-hover" data-wpy-evt="24-2" bindtap="_proxy" class="cell">
+      <view class="icon icon-qianbao ic"></view>
+      <view class="title">交易记录</view>
+      <view class="value"></view>
+      <view class="icon icon-arrow-right"></view>
+    </view>
+  </view>
+</view>

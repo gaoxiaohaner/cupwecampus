@@ -1,0 +1,27 @@
+
+<view class="container">
+  <view class="title">你的性别是?</view>
+  <view class="action-des">性别选择后无法修改</view>
+  <view class="gender">
+    <view data-wpy-evt="22-0" bindtap="_proxy" class="gender-item {{gender === 1 ? 'action' : ''}}">
+      <image wx:if="{{ gender === 1 }}" src="../images/boy_select.svg" alt=""></image>
+      <image wx:else src="../images/boy.svg" alt=""></image>
+      <view class="radio">
+        <view class="icon {{gender === 1 ? 'icon-radio-select' : 'icon-radio'}}"></view>
+        <view class="radio-txt">大帅哥</view>
+      </view>
+    </view>
+    <view data-wpy-evt="22-1" bindtap="_proxy" class="gender-item {{gender === 2 ? 'action' : ''}}">
+      <image wx:if="{{ gender === 2 }}" src="../images/girl_select.svg" alt=""></image>
+      <image wx:else src="../images/girl.svg" alt=""></image>
+      <view class="radio">
+        <view class="icon {{gender === 2 ? 'icon-radio-select' : 'icon-radio'}}"></view>
+        <view class="radio-txt">小仙女</view>
+      </view>
+    </view>
+  </view>
+  <view class="footer">
+    <button loading="{{ loading }}" disabled="{{ disabled }}" hover-class="btn-hover" lang="zh_CN" open-type="getUserInfo" data-wpy-evt="22-2" bindgetuserinfo="_proxy" class="btn-login">{{btntext}}</button>
+    <view data-wpy-evt="22-3" catchtap="_proxy" class="des">此刻开启不一样的校园生活吧</view>
+  </view>
+</view>

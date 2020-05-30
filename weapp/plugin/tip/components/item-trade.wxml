@@ -1,0 +1,24 @@
+
+<view class="item">
+  <view wx:if="{{ item.user }}" class="ic">
+    <image src="{{ item.user.avtater }}"></image>
+  </view>
+  <view wx:else class="ic ic-img">
+    <text class="icon icon-{{item.type === 0 ? 'qianbao' : 'beike'}}"></text>
+  </view>
+  <view class="item-main">
+  <block wx:if="{{item.type!=4}}">
+    <view class="item-main-top">
+      <view class="item-title">{{item.user ? (item.type === 2 ? '打赏': '收到打赏') + item.user.nick : item.type === 0 ? '石子贝变现' : '转换为石子钻'}}</view>
+      <view class="item-num {{item.type === 3 ? 'green' : ''}}">{{item.type === 3 ? '+' : '-'}}{{item.shell}}</view>
+    </view>
+  </block>
+  <block wx:if="{{item.type==4}}">
+    <view class="item-main-top">
+      <view class="item-title">充值会员+ {{item.user.nick}} </view>
+      <view class="item-num  red">vip</view>
+    </view>
+  </block>
+    <view class="item-main-time">{{item.moment}}</view>
+  </view>
+</view>

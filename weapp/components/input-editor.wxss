@@ -1,0 +1,109 @@
+.editor {
+  position: relative;
+}
+.editor editor {
+  padding: 20rpx 40rpx;
+  color: #353535;
+  box-sizing: border-box;
+}
+.editor .editor-tool {
+  background: #fff;
+  position: fixed;
+  left: 0rpx;
+  bottom: 0rpx;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.editor .editor-tool::after {
+  content: ' ';
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  height: 1px;
+  border-top: 0.4px solid rgba(235, 237, 245, 0.8);
+  color: rgba(235, 237, 245, 0.8);
+}
+.editor .editor-tool .list {
+  display: flex;
+  align-items: center;
+  flex-wrap: nowrap;
+}
+.editor .editor-tool .list .item {
+  text-align: center;
+  padding: 20rpx;
+}
+.editor .editor-tool .list .item.icon {
+  font-size: 56rpx;
+  color: #969696;
+}
+.editor .editor-tool .list .item.ql-active {
+  color: #06c;
+}
+.editor .editor-tool .list .a {
+  display: flex;
+  align-items: center;
+  flex-wrap: nowrap;
+  transition: all 0.3s;
+}
+.editor .editor-tool .list .a .icon {
+  font-size: 48rpx;
+  color: #969696;
+  padding: 20rpx;
+}
+.editor .editor-tool .list .a .icon.ql-active {
+  color: #06c;
+}
+.editor .editor-tool .list .a .item {
+  flex-grow: 1;
+  padding: 0rpx;
+}
+.editor .editor-tool .list .color {
+  display: flex;
+  align-items: center;
+  flex-wrap: nowrap;
+  transition: all 0.3s;
+}
+.editor .editor-tool .list .color .item {
+  flex-grow: 1;
+  padding: 0rpx;
+}
+.editor .editor-tool .list .color .item.black {
+  color: #353535;
+}
+.editor .editor-tool .list .color .item.blue {
+  color: #1296db;
+}
+.editor .editor-tool .list .color .item.red {
+  color: #f0351c;
+}
+.editor .editor-tool .list .color .item.grey {
+  color: #bfbfbf;
+}
+.editor .editor-action {
+  padding-right: 20rpx;
+}
+.editor .editor-action .btn-mini {
+  flex-basis: 200rpx;
+  text-align: center;
+}
+.editor .editor-action .btn-mini .btn-send {
+  display: inline-block;
+  background: #fae37c;
+  color: #000;
+  font-size: 30rpx;
+  font-weight: bold;
+  padding: 15rpx 30rpx;
+  border-radius: 10rpx;
+  line-height: normal;
+}
+.editor .editor-action .btn-mini .btn-send::after {
+  border: none;
+}
+.editor .editor-action .btn-mini .btn-disabled {
+  background: #f1f1f1;
+  color: #b2b2b2;
+}
+

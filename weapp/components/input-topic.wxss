@@ -1,0 +1,5 @@
+.topics .item-num {
+  font-size: 26rpx;
+  color: #b2b2b2;
+}
+

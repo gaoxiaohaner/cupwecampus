@@ -1,0 +1,70 @@
+.footer {
+  height: calc(85vh - 200rpx);
+  position: relative;
+}
+.footer .input {
+  margin: 60rpx;
+  margin-bottom: 0rpx;
+  border-bottom: #353535 solid 6rpx;
+  text-align: left;
+  position: relative;
+}
+.footer .input.err {
+  border-bottom-color: red;
+  color: red;
+}
+.footer .input .input-link {
+  position: absolute;
+  left: 0rpx;
+  bottom: -140rpx;
+  background: #fefefe;
+  box-shadow: 2px 1px 6px rgba(0, 0, 0, 0.1);
+  border-radius: 8rpx;
+  padding: 20rpx;
+}
+.footer .input .input-link .link-des {
+  font-size: 24rpx;
+  color: #9b9797;
+  margin-bottom: 8rpx;
+}
+.footer .input .input-link .link-web {
+  color: #353535;
+  font-size: 32rpx;
+  max-width: 596rpx;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  /*设置文本行数限制*/
+  -webkit-box-orient: vertical;
+  /*设置文本排列方式*/
+}
+.footer .input .input-title {
+  font-size: 56rpx;
+  margin-bottom: 10rpx;
+}
+.footer .input .input-des {
+  font-size: 30rpx;
+  margin-bottom: 40rpx;
+}
+.footer .input input {
+  padding: 20rpx 0rpx;
+}
+.footer .input-error {
+  font-size: 26rpx;
+  color: red;
+  text-align: left;
+  padding: 20rpx 50rpx;
+}
+.footer .footer-action {
+  position: absolute;
+  width: 100%;
+  text-align: center;
+  bottom: 40rpx;
+  padding: 30rpx 0rpx;
+  transition: all 0.2s;
+}
+.footer .footer-action button[disabled] {
+  background: rgba(250, 227, 124, 0.5);
+}
+

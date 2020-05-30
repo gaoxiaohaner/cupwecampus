@@ -1,0 +1,38 @@
+
+<view style="height: 100%;position: relative;">
+  <scroll-view scroll-y="{{ scrollY }}" refresher-enabled="{{ refresherEnabled }}" refresher-triggered="{{ triggered }}" scroll-into-view="{{ toView }}" scroll-with-animation="{{ true }}" data-wpy-evt="61-0" bindscroll="_proxy" bindscrolltolower="_proxy" bindrefresherrefresh="_proxy" bindrefresherrestore="_proxy" bindrefresherpulling="_proxy" style="height: 100%;">
+    <view wx:if="{{ state === 0 }}" class="page-state-1 page">
+      <view class="page-loading">
+        <loading bind_init="_initComponent" show="{{ true }}" type="circle"></loading>
+      </view>
+    </view>
+    <view wx:elif="{{ state === 1 }}" class="page-state-2 page">
+      <view class="page-error">
+        <image src="../images/loading_err.svg" alt="" srcset=""></image>
+        <view class="error">{{error}}</view>
+        <button hover-class="btn-hover" wx:if="{{ showBtn }}" data-wpy-evt="61-5" bindtap="_proxy" class="btn">重新加载</button>
+      </view>
+    </view>
+    <block wx:elif="{{ state === 2 }}">
+      <slot></slot>
+      <view id="other">
+        <slot name="other"></slot>
+      </view>
+      <view wx:if="{{ showFooter }}" class="page-footer">
+        <loading bind_init="_initComponent" show="{{ true }}" wx:if="{{ showLoadMore }}"></loading>
+        <view wx:else>｡◕‿◕｡ 没有更多 ｡◕‿◕｡</view>
+      </view>
+    </block>
+    <view wx:else class="page-state-4 page">
+      <view class="page-error">
+        <image src="../images/ic_empty.svg" alt="" srcset=""></image>
+        <view class="error">网络一线牵，主动才有缘～</view>
+        <button hover-class="btn-hover" wx:if="{{ emptyBtnTxt }}" data-wpy-evt="61-6" bindtap="_proxy" class="btn">{{emptyBtnTxt}}</button>
+      </view>
+    </view>
+  </scroll-view>
+  <block wx:if="{{ enableTips }}">
+    <view wx:if="{{ num }}" style="top: {{top}}rpx;" class="tips">为你选出{{num}}条好内容</view>
+    <view wx:else style="top: {{top}}rpx;" class="tips">暂时没有更好的内容</view>
+  </block>
+</view>

@@ -1,0 +1,59 @@
+
+<view data-wpy-evt="13-0" bindtouchmove="_proxy" bindtouchend="_proxy" class="container">
+  <navigation-bar bind_init="_initComponent" ext-class="bar-back" back="{{ true }}" show="false" background="{{ background }}"></navigation-bar>
+  <view class="head">
+    <view class="avtater">
+      <image src="{{ user.avtater }}"></image>
+      
+      <view wx:if="{{ user.isSelf }}" data-wpy-evt="13-2" bindtap="_proxy" class="btn-follow">
+        <view class="icon icon-edit"></view>
+        <view>编辑资料</view>
+      </view>
+      <view wx:else data-wpy-evt="13-3" catchtap="_proxy" class="btn-follow {{user.hasFollow ? 'has' : ''}}">
+        <view wx:if="{{ !user.hasFollow }}" class="icon icon-add"></view>
+        <view>{{user.hasFollow ? '已关注' : '关注'}}</view>
+      </view>
+    </view>
+    <view class="info">
+      <view class="name">
+        <view class="nick">{{user.nick}}</view>
+      </view>
+      <view class="des">
+        <view>{{user.gender}}</view>
+        <view wx:if="{{ user.school }}">{{user.school}}</view>
+        <view wx:if="{{ user.province }}">{{user.province}} {{user.city}}</view>
+      </view>
+      <view class="tool">
+        <view class="item">
+          <text class="value">{{user.thumbsNum}}</text>
+          <text class="label">获赞</text>
+        </view>
+        <view data-wpy-evt="13-4" bindtap="_proxy" class="item">
+          <text class="value">{{user.followNum}}</text>
+          <text class="label">关注</text>
+        </view>
+        <view data-wpy-evt="13-5" bindtap="_proxy" class="item">
+          <text class="value">{{user.fansNum}}</text>
+          <text class="label">粉丝</text>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view id="content" style="top: {{top}}px;{{position}};transition: {{transition}};" class="content">
+    <tabs bind_init="_initComponent" labels="{{ tabs }}" selectedIndex="{{ tabIndex }}" id="tab" auto="{{ true }}" data-wpy-evt="13-6" bindchange="_proxy"></tabs>
+    <swiper current="{{ current }}" data-wpy-evt="13-7" bindchange="_proxy" style="height: calc(100vh - {{top}}px - 90rpx);">
+      <swiper-item>
+        <mp-list bind_init="_initComponent" action="{{ action }}" objId="{{ userId }}" dataType="{{ 0 }}" isInit="{{ init0 }}" refresherEnabled="{{ false }}" scrollY="{{ scrollY }}" data-wpy-evt="13-8" bindshare="_proxy"></mp-list>
+      </swiper-item>
+      <swiper-item>
+        <mp-list bind_init="_initComponent" action="{{ action }}" objId="{{ userId }}" dataType="{{ 1 }}" isInit="{{ init1 }}" refresherEnabled="{{ false }}" scrollY="{{ scrollY }}" data-wpy-evt="13-9" bindshare="_proxy"></mp-list>
+      </swiper-item>
+      <swiper-item>
+        <mp-list bind_init="_initComponent" action="{{ action }}" objId="{{ userId }}" dataType="{{ 2 }}" isInit="{{ init2 }}" refresherEnabled="{{ false }}" scrollY="{{ scrollY }}" data-wpy-evt="13-10" bindshare="_proxy"></mp-list>
+      </swiper-item>
+      <swiper-item>
+        <topic-list bind_init="_initComponent" controller="topic" action="getListForUser" objId="{{ userId }}" isInit="{{ init3 }}" refresherEnabled="{{ false }}" scrollY="{{ scrollY }}" pageSize="{{ 10 }}"></topic-list>
+      </swiper-item>
+    </swiper>
+  </view>
+</view>

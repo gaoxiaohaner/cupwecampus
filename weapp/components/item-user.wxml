@@ -1,0 +1,34 @@
+
+<view data-wpy-evt="62-0" catchtap="_proxy" class="user">
+  <image src="{{ item.avtater }}" style="width: {{width}}rpx;height: {{width}}rpx;border-radius: {{radius}}rpx;" class="user-avtater"></image>
+  <view class="user-info">
+    <view class="user-info-top">
+      <view class="user-info-nick {{item.grade === 3 ? 'vip' : ''}}">{{item.nick}}</view>
+      <image src="/images/renzheng.png" wx:if="{{ item.isAuth }}" class="ic-img"></image><!--学生认证-->
+      <image src="/images/zuozhe.png" wx:if="{{ item.grade > 1 }}" class="ic-img"></image>
+      <image src="/images/vip.png" wx:if="{{ item.userType === 1 }}" class="ic-img"></image>
+    </view>
+    <view class="user-info-bottom">
+      <view>{{item.gender}}</view>
+      <view>·</view>
+      <view>{{item.title || item.school || '未填写学校'}}</view>
+    </view>
+    <view wx:if="{{ showNum }}" class="user-num">
+      <text>
+        <text class="label">获赞</text>
+        <text class="value">{{item.thumbsNum}}</text>
+      </text>
+      <text>
+        <text class="label">关注</text>
+        <text class="value">{{item.followNum}}</text>
+      </text>
+      <text>
+        <text class="label">粉丝</text>
+        <text class="value">{{item.fansNum}}</text>
+      </text>
+    </view>
+  </view>
+  <view class="user-action">
+    <slot name="action"></slot>
+  </view>
+</view>

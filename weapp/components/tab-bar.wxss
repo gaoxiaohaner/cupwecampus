@@ -1,0 +1,42 @@
+.tab-bar {
+  position: relative;
+}
+.tab-bar .tabs {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  flex-wrap: nowrap;
+}
+.tab-bar .tabs .tab-bar {
+  position: absolute;
+  width: 18rpx;
+  height: 6rpx;
+  background: #13100e;
+  border-radius: 30rpx;
+  bottom: 12rpx;
+  transition: all 0.3s;
+}
+.tab-bar .tab {
+  display: inline-block;
+  font-size: 30rpx;
+  width: 120rpx;
+  flex-shrink: 0;
+  padding: 24rpx 0rpx;
+  box-sizing: border-box;
+  line-height: 40rpx;
+  color: #9b9b9b;
+  text-align: center;
+  position: relative;
+}
+.tab-bar .tab.active {
+  color: #000000;
+  font-weight: bold;
+}
+.tab-bar .tab .dot {
+  position: absolute;
+  color: red;
+  top: 0rpx;
+  right: 0rpx;
+}
+

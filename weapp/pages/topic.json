@@ -1,0 +1,10 @@
+{
+    "navigationStyle": "custom",
+    "component": true,
+    "usingComponents": {
+        "navigation-bar": "../components/navigation-bar/navigation-bar",
+        "tool": "../components/action-tool",
+        "mp-list": "../components/page-list",
+        "tab-bar": "../components/tab-bar"
+    }
+}

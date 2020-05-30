@@ -1,0 +1,93 @@
+
+<view class="container">
+  <view data-wpy-evt="14-0" bindtap="_proxy" class="avtater">
+    <image src="{{ user.avtater }}"></image>
+    <view class="btn-edit icon icon-camera-full"></view>
+  </view>
+  <view class="cells">
+    <view hover-class="cell-hover" wx:for="{{ info }}" wx:for-index="filed" wx:for-item="item" wx:key="filed" key="{{ filed }}" data-wpy-evt="14-1" bindtap="_proxy" data-wpytap-a="{{ item }}" data-wpytap-b="{{ filed }}" class="cell">
+      <view class="left">{{item.title}}</view>
+      <view class="right">
+        <view class="value">{{item.value || item.des}}</view>
+        <view class="icon icon-arrow-right"></view>
+      </view>
+    </view>
+  </view>
+  <view class="cells"> 
+    <view hover-class="cell-hover" data-wpy-evt="14-2" bindtap="_proxy" class="cell">
+      <view class="left">就读学校</view>
+      <view class="right">
+        <view class="value">{{user.school||'选择学校'}}</view>
+        <view wx:if="{{ !user.isAuth }}" class="icon icon-arrow-right"></view>
+      </view>
+    </view>
+  </view>
+  <view wx:if="{{ !user.isAuth }}" class="cells">
+    <view hover-class="cell-hover" data-wpy-evt="14-3" bindtap="_proxy" class="cell btn-cell">
+      <view class="icon icon-auth-1"></view>
+      <view>去学生认证</view>
+    </view>
+  </view>
+  <dialog bind_init="_initComponent" title="修改昵称" show="{{dialogShow}}" buttons="{{buttons}}" data-wpy-evt="14-4" bindclose="_proxy" bindbuttontap="_proxy">
+    <view class="input-bg">
+      <input value="{{ info.nick.value }}" bindinput="_proxy" data-model-id="7" maxlength="10" auto-focus="" placeholder="将会获取焦点" class="nick-input"></input>
+    </view>
+  </dialog>
+  <dialog bind_init="_initComponent" title="个性签名" show="{{dialogSignShow}}" buttons="{{buttons}}" data-wpy-evt="14-6" bindclose="_proxy" bindbuttontap="_proxy">
+    <view class="input-bg">
+      <textarea value="{{ info.signature.value }}" bindinput="_proxy" data-model-id="8" maxlength="{{ 30 }}" placeholder="一句话让别人注意你" style="height: 120rpx;"></textarea>
+    </view>
+  </dialog>
+  <screen-dialog bind_init="_initComponent" show="{{ screenBirthDayDialog }}" closabled="{{ false }}" data-wpy-evt="14-8" bindclose="_proxy">
+    <view slot="desc" class="dialog">
+      <view class="title">
+        <view data-wpy-evt="14-9" bindtap="_proxy" class="left btn-mini">取消</view>
+        <view class="center">选择生日</view>
+        <view data-wpy-evt="14-10" bindtap="_proxy" class="right btn-mini btn-confirm">确认</view>
+      </view>
+      <picker-view value="{{ birthday }}" indicator-style="height: 50px;" data-wpy-evt="14-11" bindchange="_proxy" style="height: 260rpx;">
+        <picker-view-column>
+          <view wx:for="{{ years }}" wx:for-index="index" wx:for-item="y" wx:key="index" class="picker-col">{{y}}年</view>
+        </picker-view-column>
+        <picker-view-column>
+          <view wx:for="{{ months }}" wx:for-index="index" wx:for-item="m" wx:key="index" class="picker-col">{{m}}月</view>
+        </picker-view-column>
+        <picker-view-column>
+          <view wx:for="{{ days }}" wx:for-index="index" wx:for-item="d" wx:key="index" class="picker-col">{{d}}日</view>
+        </picker-view-column>
+      </picker-view>
+    </view>
+  </screen-dialog>
+  <screen-dialog bind_init="_initComponent" show="{{ homeTownDialog }}" closabled="{{ false }}" data-wpy-evt="14-12" bindclose="_proxy">
+    <view slot="desc" class="dialog">
+      <view class="title">
+        <view data-wpy-evt="14-13" bindtap="_proxy" class="left btn-mini">取消</view>
+        <view class="center">选择故乡</view>
+        <view data-wpy-evt="14-14" bindtap="_proxy" class="right btn-mini btn-confirm">确认</view>
+      </view>
+      <picker-view value="{{ hometown }}" indicator-style="height: 50px;" data-wpy-evt="14-15" bindchange="_proxy" style="height: 260rpx;">
+        <picker-view-column>
+          <view wx:for="{{ provinces }}" wx:for-index="index" wx:for-item="p" wx:key="index" class="picker-col">{{p}}</view>
+        </picker-view-column>
+        <picker-view-column>
+          <view wx:for="{{ citys }}" wx:for-index="index" wx:for-item="c" wx:key="index" class="picker-col">{{c}}</view>
+        </picker-view-column>
+      </picker-view>
+    </view>
+  </screen-dialog>
+  <screen-dialog bind_init="_initComponent" show="{{ showDialog }}" closabled="{{ false }}" data-wpy-evt="14-16" bindclose="_proxy">
+    <view slot="desc" class="dialog">
+      <view class="title">
+        <view data-wpy-evt="14-17" bindtap="_proxy" class="left btn">取消</view>
+        <view class="center">{{title}}</view>
+        <view data-wpy-evt="14-18" bindtap="_proxy" class="right btn btn-confirm">确认</view>
+      </view>
+      <picker-view value="{{ value }}" indicator-style="height: 50px;" data-wpy-evt="14-19" bindchange="_proxy" style="height: 260rpx;">
+        <picker-view-column>
+          <view wx:for="{{ dataSoure[index] }}" wx:for-index="index" wx:for-item="item" wx:key="index" class="picker-col">{{item}}</view>
+        </picker-view-column>
+      </picker-view>
+    </view>
+  </screen-dialog>
+  <school-input bind_init="_initComponent" show="{{ showSchool }}" data-wpy-evt="14-20" bindresult="_proxy" bindclose="_proxy"></school-input>
+</view>

@@ -1,0 +1,13 @@
+
+<view class="container">
+  <swiper indicator-dots="{{ true }}" indicator-color="#fae37c" indicator-active-color="rgba(250, 227, 124, 0.2)" style="height: calc(100vh - 56px);">
+    <swiper-item wx:for="{{ items }}" wx:for-index="index" wx:for-item="item" wx:key="index" key="{{ index }}">
+      <view class="item">
+        <image src="{{ item.icon }}"></image>
+        <view class="title">{{item.title}}</view>
+        <view class="des">{{item.des}}</view>
+        <button hover-class="btn-hover" loading="{{ loading }}" disabled="{{ disabled }}" data-wpy-evt="3-0" bindtap="_proxy" class="btn">{{btntext}}</button>
+      </view>
+    </swiper-item>
+  </swiper>
+</view>

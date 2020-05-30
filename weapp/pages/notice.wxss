@@ -1,0 +1,40 @@
+.my-tabs {
+  border-radius: 0rpx;
+  text-align: left;
+}
+.my-tabs .tab {
+  font-size: 28rpx;
+}
+.my-tabs .tab.active {
+  font-size: 34rpx;
+}
+.list {
+  margin-top: 20rpx;
+}
+.list .clean {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #b2b2b2;
+  font-size: 28rpx;
+  background: #fff;
+  padding: 20rpx;
+  position: relative;
+}
+.list .clean.clean-hover {
+  background: #f9f9f9;
+}
+.list .clean::after {
+  content: ' ';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  height: 1px;
+  border-bottom: 0.4px solid rgba(235, 237, 245, 0.8);
+  color: rgba(235, 237, 245, 0.8);
+}
+.list .clean .icon {
+  margin-right: 10rpx;
+}
+

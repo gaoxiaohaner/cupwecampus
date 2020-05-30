@@ -1,0 +1,41 @@
+
+<view data-wpy-evt="85-0" bindtap="_proxy" class="notice">
+  <view class="avtater">
+    <image src="{{ item.user.avtater }}"></image>
+  </view>
+  <view class="content {{item.isRead ? 'has-read' : ''}}">
+    <view>
+      <text>
+        <text class="nick">{{item.user.nick}}</text>
+        <text>{{labels[item.noticeType]}}</text>
+      </text>
+    </view>
+    <view wx:if="{{ item.comment }}" class="comment">{{item.comment.content}}</view>
+    <view wx:if="{{ item.noticeType === 3 || item.noticeType === 5 }}" class="zan">
+      <text class="icon icon-zan-full"></text>
+      <text>+1</text>
+    </view>
+    <view wx:if="{{ item.noticeType === 7 }}" class="zan">
+      <text class="icon icon-questions"></text>
+      <text>+1</text>
+    </view>
+    <view wx:if="{{ item.noticeType === 9 }}" class="zan">
+      <text class="icon icon-beike"></text>
+      <text>+{{item.shell}}</text>
+    </view>
+    <view wx:if="{{ item.noticeType === 6 }}" class="zan">
+      <text class="icon icon-love-full"></text>
+      <text>+1</text>
+    </view>
+    <view class="time">{{item.moment}}</view>
+  </view>
+  <view wx:if="{{ item.noticeType === 6 }}" class="action">
+    <view hover-class="btn-hover" data-wpy-evt="85-1" bindtap="_proxy" class="btn-follow {{item.hasFollow ? 'has' : ''}}">
+      <text class="icon icon-{{item.hasFollow ? 'follow' : 'add'}}"></text>
+      <text>{{item.hasFollow ? '已关注' : '关注'}}</text>
+    </view>
+  </view>
+  <view wx:if="{{ item.post && item.post.imgs && item.post.imgs.length }}" class="img">
+    <image src="{{ item.post.imgs[0].thumbPath }}"></image>
+  </view>
+</view>

@@ -1,0 +1,7 @@
+
+<view>
+  <block wx:if="{{ items.length }}">
+    <post-item bind_init="_initComponent" wx:for="{{ items }}" wx:for-index="index" wx:for-item="item" wx:key="index" item="{{ item }}" data-wpy-evt="64-0" bindremove="_proxy"></post-item>
+  </block>
+  <empty bind_init="_initComponent" des="暂无回答" btnTxt="回答问题" wx:else data-wpy-evt="64-1" bindaction="_proxy"></empty>
+</view>

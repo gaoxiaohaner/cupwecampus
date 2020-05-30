@@ -1,0 +1,16 @@
+{
+    "navigationBarTitleText": "帖子详情",
+    "navigationStyle": "custom",
+    "component": true,
+    "usingComponents": {
+        "navigation-bar": "../components/navigation-bar/navigation-bar",
+        "mp-page": "../components/mp-page",
+        "user": "../components/item-user",
+        "post-item": "../components/item-post",
+        "list-answers": "../components/list-answers",
+        "list-comments": "../components/list-comments",
+        "comment-action": "../components/comment-action",
+        "comment-input": "../components/input-comment",
+        "reward": "../plugin/tip/components/reward"
+    }
+}

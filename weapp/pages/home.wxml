@@ -1,0 +1,32 @@
+
+<view class="container">
+  <navigation-bar bind_init="_initComponent" back="{{ false }}" background="transparent">
+    <view slot="left">
+      <tabs bind_init="_initComponent" extClass="my-tabs" labels="{{ labels }}" selectedIndex="{{ tabIndex }}" data-wpy-evt="4-0" bindchange="_proxy"></tabs>
+    </view>
+  </navigation-bar>
+  <swiper current="{{ current }}" data-wpy-evt="4-1" bindchange="_proxy" style="height: calc(100vh - {{navigationHeight}}px);">
+    <swiper-item>
+      <page-follow bind_init="_initComponent" isInit="{{ init0 }}"></page-follow>
+    </swiper-item>
+    <swiper-item>
+      <page-topic bind_init="_initComponent" isInit="{{ init1 }}"></page-topic>
+    </swiper-item>
+    <swiper-item>
+      <list bind_init="_initComponent" dataType="{{ 0 }}" isInit="{{ init2 }}" data-wpy-evt="4-2" bindshare="_proxy"></list>
+    </swiper-item>
+    <swiper-item>
+      <list bind_init="_initComponent" action="listForSchool" emptyBtnTxt="{{ emptyBtnTxt }}" isInit="{{ init3 }}" data-wpy-evt="4-3" bindemptyTap="_proxy" bindshare="_proxy"></list>
+    </swiper-item>
+    <swiper-item>
+      <list bind_init="_initComponent" dataType="{{ 1 }}" isInit="{{ init4 }}" data-wpy-evt="4-5" bindshare="_proxy"></list>
+    </swiper-item>
+    <swiper-item>
+      <list bind_init="_initComponent" dataType="{{ 2 }}" isInit="{{ init5 }}" data-wpy-evt="4-6" bindshare="_proxy"></list>
+    </swiper-item>
+    <swiper-item>
+      <list bind_init="_initComponent" dataType="{{ 3 }}" isInit="{{ init6 }}" data-wpy-evt="4-7" bindshare="_proxy"></list>
+    </swiper-item>
+  </swiper>
+  <tool bind_init="_initComponent"></tool>
+</view>

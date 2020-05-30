@@ -1,0 +1,15 @@
+
+<view class="page-action">
+  <view data-wpy-evt="66-0" bindtap="_proxy" class="item-input">{{des}}</view>
+  <view data-wpy-evt="66-1" bindtap="_proxy" class="item">
+    <view class="icon icon-comment"></view>
+    <view>{{commentCount || '评论'}}</view>
+  </view>
+  <view data-wpy-evt="66-2" bindtap="_proxy" class="item">
+    <view class="icon icon-zan-{{isLike ? 'full' : 'line'}}"></view>
+    <view>{{thumbsCount||'点赞'}}</view>
+  </view>
+  <view wx:if="{{ showShare }}" data-wpy-evt="66-3" bindtap="_proxy" class="item">
+    <view class="icon icon-share"></view>
+  </view>
+</view>

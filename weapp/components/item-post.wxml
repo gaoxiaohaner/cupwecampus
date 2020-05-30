@@ -1,0 +1,102 @@
+
+<view class="post">
+  <user bind_init="_initComponent" item="{{ item.user || item.from }}">
+    <view slot="action" wx:if="{{ showFollow }}">
+      <button data-wpy-evt="63-0" catchtap="_proxy" class="btn-follow {{item.hasFollow ? 'has' : ''}}">
+        <text class="icon icon-{{item.hasFollow ? 'follow' : 'add'}}"></text>
+        <text>{{item.hasFollow ? '已关注' : '关注'}}</text>
+      </button>
+    </view>
+    <block wx:else>
+      <view slot="action" wx:if="{{ item.isSelf || item.isSys }}" data-wpy-evt="63-1" catchtap="_proxy" class="btn-more">
+        <text class="icon icon-more"></text>
+      </view>
+    </block>
+  </user>
+  <view data-wpy-evt="63-2" bindtap="_proxy" style="margin-left: 84rpx;" class="post-content">
+    <view wx:if="{{ item.post.posType === 3 }}" class="post-questions">{{item.post.content}}</view>
+    <view wx:elif="{{ item.post.posType === 2 }}" class="post-txt">
+      <view class="post-article-c">
+        <view class="post-article-c-m">
+          <view class="post-title">{{item.post.articleTitle}}</view>
+          <view class="post-article-content">{{item.post.introduction}}</view>
+        </view>
+        <image src="{{ item.post.imgs[0].path }}" mode="aspectFill" wx:if="{{ item.post.imgs && item.post.imgs.length }}"></image>
+      </view>
+    </view>
+    <view wx:elif="{{ item.post.posType === 4 }}" class="post-txt post-answer">
+      <text>{{item.post.introduction}}</text>
+    </view>
+    <view wx:else class="post-txt post-txt-content">
+      <block wx:for="{{ item.post.content }}" wx:for-index="index" wx:for-item="obj" wx:key="index">
+        <text wx:if="{{ obj.type === 0 }}" space="nbsp" class="{{showInfo ? 'simple' : ''}}">{{obj.value}}</text>
+        <image wx:else src="{{ obj.src }}" class="icon-mini-img"></image>
+      </block>
+    </view>
+    <view wx:if="{{ item.post.imgs && item.post.posType !== 2 }}" class="post-imgs">
+      <view wx:for="{{ item.post.imgs }}" wx:for-index="index" wx:for-item="img" wx:key="index" key="{{ index }}" class="post-img-item">
+        <image src="{{ img.thumbPath }}" mode="aspectFill" lazy-load="{{ true }}" data-wpy-evt="63-3" catchtap="_proxy" data-wpytap-a="{{ index }}"></image>
+        <view wx:if="{{ img.height > 1080 }}" class="img-des">长图</view>
+      </view>
+    </view>
+    <view wx:if="{{ item.post.link }}" data-wpy-evt="63-4" catchtap="_proxy" class="post-article">
+      <view class="article-title">{{item.post.articleTitle}}</view>
+      <image src="{{ item.post.articleImg }}" mode="aspectFill" wx:if="{{ item.post.articleImg }}"></image>
+      <view wx:else class="img-empty">
+        <text class="icon icon-link-fill"></text>
+      </view>
+    </view>
+    <view wx:if="{{ item.post.address }}" class="post-location">
+      <view class="address">
+        <image src="../images/location.svg"></image>
+        <view class="name">{{ item.post.address}}</view>
+        <view class="icon icon-arr-right"></view>
+      </view>
+    </view>
+    <view wx:if="{{ item.post.topicTitle && showTool }}" class="post-topic">
+      <view wx:if="{{ item.post.hot > -1 }}" class="hot-num">
+        <text class="icon icon-hot"></text>热度
+        <text class="hot-num">{{item.post.hot}}</text>℃
+      </view>
+      <view wx:else data-wpy-evt="63-5" catchtap="_proxy" class="topic">
+        <view class="icon icon-topic-line"></view>
+        <view class="topicTitle">{{item.post.topicTitle}}</view>
+        <view class="icon icon-arrow-right"></view>
+      </view>
+      <view wx:if="{{ item.post.posType === 3 || item.likers }}" class="zan">
+        <image wx:for="{{ item.likers }}" wx:for-index="index" wx:for-item="img" wx:key="index" src="{{ img }}" key="{{ index }}"></image>
+        <view class="zan-des">{{item.post.posType === 3 ? item.post.commentCount : item.post.thumbsCount}}人{{item.post.posType === 3 ? '回答' : '赞了'}}</view>
+      </view>
+    </view>
+    <view wx:if="{{ item.comment }}" class="post-comment">
+      <text>
+        <text class="hot-tag">热评</text>
+        <text class="nick">{{item.comment.user.nick}}：</text>
+        <text>{{item.comment.content}}</text>
+      </text>
+    </view>
+    <view wx:if="{{ showTool && item.post.posType !== 3 }}" class="post-tool">
+      <view data-wpy-evt="63-6" catchtap="_proxy" class="btn-share">
+        <button open-type="share" data-wpy-evt="63-7" bindtouchstart="_proxy">
+          <view class="count-item">
+            <view class="icon icon-share"></view>
+            <view>分享</view>
+          </view>
+        </button>
+      </view>
+      <view class="count-item drill">
+        <view class="icon icon-drill"></view>
+        <view>{{item.post.shell || '赞赏'}}</view>
+      </view>
+      <view class="count-item">
+        <view class="icon icon-zan-line"></view>
+        <view>{{item.post.thumbsCount || '赞'}}</view>
+      </view>
+      <view class="count-item">
+        <view class="icon icon-comment"></view>
+        <view>{{item.post.commentCount || '评论'}}</view>
+      </view>
+    </view>
+  </view>
+  <slot></slot>
+</view>

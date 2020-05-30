@@ -1,0 +1,7 @@
+{
+    "navigationBarBackgroundColor": "#b2b2b2",
+    "component": true,
+    "usingComponents": {
+        "painter": "../components/painter/painter"
+    }
+}

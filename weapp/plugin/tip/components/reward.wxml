@@ -1,0 +1,40 @@
+
+<view class="reward">
+  <view hover-class="btn-hover" wx:if="{{ !isSelf }}" data-wpy-evt="68-0" bindtap="_proxy" class="btn-gift">
+    <view class="icon icon-gift"></view>
+    <view>赞赏支持</view>
+  </view>
+  <view class="gift-des">
+    <text>
+      <text>已获得</text>
+      <text class="icon icon-drill"></text>
+      <text>{{shell}}</text>个石子钻
+    </text>
+  </view>
+  <screen-dialog bind_init="_initComponent" show="{{ rewardDialog }}" closabled="{{ false }}" data-wpy-evt="68-1" bindclose="_proxy">
+    <view slot="desc" class="dialog">
+      <view class="dialog-title">
+        <view class="icon icon-drill"></view>
+        <view>赞赏TA</view>
+      </view>
+      <view class="dialog-title-des">你账户还有{{user && user.drill}}个石子币</view>
+      <view class="dialog-content">
+        <block wx:for="{{ items }}" wx:for-index="index" wx:for-item="item" wx:key="index" key="{{ item }}">
+          <view wx:if="{{ item > 0 }}" data-wpy-evt="68-2" bindtap="_proxy" data-wpytap-a="{{ index }}" data-wpytap-b="{{ item }}" class="icon icon-drill-full item {{active === index ? 'active' : ''}}">{{item}}</view>
+          <view wx:else data-wpy-evt="68-3" bindtap="_proxy" data-wpytap-a="{{ index }}" class="item {{active === index ? 'active' : ''}}">
+            <input type="number" value="{{ drill }}" bindinput="_proxy" data-model-id="11" maxlength="2" placeholder="自定义" data-wpy-evt="68-4"></input>
+          </view>
+        </block>
+      </view>
+      <block wx:if="{{ disabled }}">
+        <view class="btn-gift btn-disabled">
+          <view>石子币不足</view>
+        </view>
+        <view class="btn-des">写高质量文章可获得更多用户打赏</view>
+      </block>
+      <button wx:else disabled="{{ btnDisabled }}" loading="{{ btnLoading }}" hover-class="btn-hover" data-wpy-evt="68-5" bindtap="_proxy" class="btn-gift">
+        <view>确认打赏</view>
+      </button>
+    </view>
+  </screen-dialog>
+</view>

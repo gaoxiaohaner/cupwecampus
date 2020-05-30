@@ -1,0 +1,7 @@
+
+<view>
+  <block wx:if="{{ items.length }}">
+    <comment-item bind_init="_initComponent" wx:for="{{ items }}" wx:for-index="index" wx:for-item="item" wx:key="index" item="{{ item }}" isLast="{{ likeType === 1 }}" index="{{ index }}" data-wpy-evt="65-0" bindlike="_proxy" bindremove="_proxy" bindset="_proxy"></comment-item>
+  </block>
+  <empty bind_init="_initComponent" des="来,神评是你的" wx:else></empty>
+</view>

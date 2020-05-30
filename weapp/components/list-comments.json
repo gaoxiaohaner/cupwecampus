@@ -1,0 +1,7 @@
+{
+    "component": true,
+    "usingComponents": {
+        "empty": "empty",
+        "comment-item": "item-comment"
+    }
+}

@@ -1,0 +1,76 @@
+.container {
+  position: relative;
+}
+.box {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  bottom: 0px;
+  right: 0px;
+  opacity: 1;
+  transition: all 0.3s;
+}
+.box .box-mask {
+  background: #000;
+  opacity: 0.3;
+  position: absolute;
+  top: 0px;
+  width: 100%;
+  left: 0px;
+  bottom: 0px;
+  right: 0px;
+  z-index: 999;
+}
+.box .box-main {
+  position: absolute;
+  top: 0px;
+  width: 100%;
+  box-sizing: border-box;
+  left: 0px;
+  background: #ffffff;
+  box-shadow: 10rpx 0rpx 20rpx rgba(0, 0, 0, 0.2);
+  z-index: 1000;
+  padding: 40rpx;
+  transition: all 0.3s;
+  font-size: 36rpx;
+  font-weight: bold;
+  line-height: 60rpx;
+}
+.navigation .weui-navigation-bar__left {
+  padding-left: 16px;
+}
+.user-back {
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+.user-back .icon {
+  padding: 20rpx 0rpx;
+  padding-right: 30rpx;
+  font-size: 42rpx;
+  font-weight: bold;
+}
+.user-back .title {
+  flex-grow: 1;
+  font-size: 32rpx;
+  font-weight: normal;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+.user-back .title .title-c {
+  max-width: 310rpx;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  /*设置文本行数限制*/
+  -webkit-box-orient: vertical;
+  /*设置文本排列方式*/
+}
+.user-back .title .icon {
+  padding: 0rpx;
+  transition: all 0.3s;
+}
+

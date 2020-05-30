@@ -1,0 +1,84 @@
+.notice {
+  display: flex;
+  background: #fff;
+  align-items: center;
+  padding: 20rpx 30rpx;
+  position: relative;
+}
+.notice::after {
+  content: ' ';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  height: 1px;
+  border-bottom: 0.4px solid rgba(235, 237, 245, 0.8);
+  color: rgba(235, 237, 245, 0.8);
+}
+.notice .avtater {
+  flex-shrink: 0;
+}
+.notice .avtater image {
+  width: 96rpx;
+  height: 96rpx;
+  border-radius: 96rpx;
+}
+.notice .content {
+  flex-grow: 1;
+  font-size: 30rpx;
+  margin: 0rpx 30rpx;
+  color: #66b1ff;
+}
+.notice .content.has-read {
+  color: #b2b2b2;
+}
+.notice .content .nick {
+  font-size: 28rpx;
+  margin-right: 20rpx;
+}
+.notice .content .zan {
+  margin: 20rpx 0rpx;
+}
+.notice .content .zan .icon {
+  margin-right: 20rpx;
+}
+.notice .content .comment {
+  margin: 16rpx 0rpx;
+  font-size: 28rpx;
+  color: #7a8299;
+}
+.notice .content .time {
+  font-size: 24rpx;
+  color: #b2b2b2;
+}
+.notice .img {
+  flex-shrink: 0;
+}
+.notice .img image {
+  width: 130rpx;
+  height: 130rpx;
+  border-radius: 10rpx;
+}
+.notice .btn-follow {
+  font-size: 26rpx;
+  background: #fae37c;
+  box-shadow: 4rpx 8rpx 12rpx rgba(250, 227, 124, 0.5);
+  padding: 20rpx 30rpx;
+  border-radius: 8rpx;
+  line-height: normal;
+  display: flex;
+  align-items: center;
+}
+.notice .btn-follow .icon {
+  font-size: 32rpx;
+  margin-right: 10rpx;
+}
+.notice .btn-follow.has {
+  background: #f8f8f8;
+  color: #b2b2b2;
+  box-shadow: none;
+}
+.notice .btn-follow.btn-hover {
+  background: rgba(250, 227, 124, 0.5);
+}
+

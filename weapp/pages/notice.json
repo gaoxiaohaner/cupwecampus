@@ -1,0 +1,10 @@
+{
+    "navigationBarTitleText": "石大圈子",
+    "navigationStyle": "custom",
+    "component": true,
+    "usingComponents": {
+        "navigation-bar": "../components/navigation-bar/navigation-bar",
+        "tabs": "../components/tab-bar",
+        "list": "../components/page-list"
+    }
+}

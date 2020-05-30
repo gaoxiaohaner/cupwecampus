@@ -1,0 +1,8 @@
+{
+    "navigationBarTitleText": "话题广场",
+    "component": true,
+    "usingComponents": {
+        "searchbar": "../components/searchbar/searchbar",
+        "list": "../components/page-list"
+    }
+}

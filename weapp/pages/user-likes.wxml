@@ -1,0 +1,4 @@
+
+<view class="container">
+  <mp-list bind_init="_initComponent" action="likesForUser" refresherEnabled="{{ false }}" isInit="{{ init }}"></mp-list>
+</view>

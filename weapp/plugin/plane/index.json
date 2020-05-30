@@ -1,0 +1,12 @@
+{
+    "navigationBarTitleText": "吐槽机",
+    "backgroundColor": "#ffeb30",
+    "navigationBarBackgroundColor": "#ffeb30",
+    "component": true,
+    "usingComponents": {
+        "dialog": "../../components/dialog/dialog",
+        "comment-input": "../../components/input-comment",
+        "plane-add": "../../components/input-comment",
+        "user-item": "../../components/item-user"
+    }
+}

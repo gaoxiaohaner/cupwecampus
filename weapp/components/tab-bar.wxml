@@ -1,0 +1,14 @@
+
+<scroll-view scroll-x="{{ true }}" scroll-with-animation="{{ true }}" scroll-into-view="tab-{{currentView}}" style="{{auto ? '' : innerWidth}}">
+  <view class="tab-bar {{extClass}}">
+    <view class="tabs">
+      <view wx:for="{{ labels }}" wx:for-index="index" wx:for-item="item" wx:key="index" id="tab-{{index}}" key="{{ index }}" data-wpy-evt="56-0" bindtap="_proxy" data-wpytap-a="{{ index }}" class="tab {{index === selectedIndex ? 'active' : ''}}">
+      <view>{{item.title}}</view>
+      <view wx:if="{{ item.showDot }}" class="dot">
+        <text class="icon icon-dot"></text>
+      </view>
+      </view>
+      <view style="left: {{left}}rpx;" class="tab-bar"></view>
+    </view>
+  </view>
+</scroll-view>

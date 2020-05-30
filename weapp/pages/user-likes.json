@@ -1,0 +1,7 @@
+{
+    "navigationBarTitleText": "我赞过的",
+    "component": true,
+    "usingComponents": {
+        "mp-list": "../components/page-list"
+    }
+}

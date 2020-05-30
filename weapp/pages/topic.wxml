@@ -1,0 +1,67 @@
+
+<view data-wpy-evt="19-0" bindtouchmove="_proxy" bindtouchend="_proxy">
+  <view class="shadow">
+    <view style=" background-image: url({{topic.bg}});background-repeat: no-repeat;background-size: 120% 120%;" class="shadow-main"></view>
+  </view>
+  <navigation-bar bind_init="_initComponent" ext-class="bar-ext" back="{{ false }}" background="{{ background }}">
+    <view slot="left" class="user-back">
+      <view wx:if="{{ opacity >= 1 }}" data-wpy-evt="19-2" bindtap="_proxy" class="btn-back btn-black"></view>
+      <view wx:else data-wpy-evt="19-3" bindtap="_proxy" class="btn-back"></view>
+      <view style="opacity:{{opacity}};" class="title">校园生活</view>
+    </view>
+  </navigation-bar>
+  <view class="head">
+    <view class="topic">
+      <image src="{{ topic.iconSrc }}"></image>
+      <view class="topic-info">
+        <view class="title">{{topic.title}}</view>
+        <view class="des">{{topic.des}}</view>
+      </view>
+    </view>
+    <view class="tool">
+      <view class="count">
+        <text>{{topic.followCount}}</text>
+        <text>{{topic.nickName}}</text>
+      </view>
+      <view class="rank">
+        <block>
+          <image src="../images/ic_rank.svg" class="ic"></image>
+          <view class="rank-name">大神榜</view>
+          <view class="imgs">
+            <image src="{{ img }}" wx:for="{{ topic.followers }}" wx:for-index="index" wx:for-item="img" wx:key="index" key="{{ index }}"></image>
+          </view>
+          <view class="icon icon-arrow-right"></view>
+        </block>
+      </view>
+      <view class="tool-action">
+        <button data-wpy-evt="19-4" bindtap="_proxy" class="btn {{topic.hasFollow ? 'has' : ''}}">
+          <text class="icon icon-{{topic.hasFollow ? 'follow' : 'add'}}"></text>
+          <text>{{topic.hasFollow ? '已关注' : '关注'}}</text>
+        </button>
+      </view>
+    </view>
+  </view>
+  <view style="top: {{top}}px;{{position}};transition: {{transition}};" class="main">
+    <view class="tab-box">
+      <tab-bar bind_init="_initComponent" labels="{{ tabs }}" extClass="bar-ext" selectedIndex="{{ tabIndex }}" id="tab" auto="{{ true }}" data-wpy-evt="19-5" bindchange="_proxy"></tab-bar>
+    </view>
+    <swiper current="{{ current }}" data-wpy-evt="19-6" bindchange="_proxy" style="height: calc(100vh - {{top}}px - 90rpx);background:#f8f8f8;">
+      <swiper-item>
+        <mp-list bind_init="_initComponent" action="{{ action }}" objId="{{ topicId }}" dataType="{{ 0 }}" isInit="{{ init0 }}" refresherEnabled="{{ !scrollY }}" scrollY="{{ scrollY }}" data-wpy-evt="19-7" bindshare="_proxy"></mp-list>
+      </swiper-item>
+      <swiper-item>
+        <mp-list bind_init="_initComponent" action="{{ action }}" objId="{{ topicId }}" dataType="{{ 1 }}" isInit="{{ init1 }}" refresherEnabled="{{ !scrollY }}" scrollY="{{ scrollY }}" data-wpy-evt="19-8" bindshare="_proxy"></mp-list>
+      </swiper-item>
+      <swiper-item>
+        <mp-list bind_init="_initComponent" action="{{ action }}" objId="{{ topicId }}" dataType="{{ 2 }}" isInit="{{ init2 }}" refresherEnabled="{{ !scrollY }}" scrollY="{{ scrollY }}" data-wpy-evt="19-9" bindshare="_proxy"></mp-list>
+      </swiper-item>
+      <swiper-item>
+        <mp-list bind_init="_initComponent" action="{{ action }}" objId="{{ topicId }}" dataType="{{ 3 }}" isInit="{{ init3 }}" refresherEnabled="{{ !scrollY }}" scrollY="{{ scrollY }}" data-wpy-evt="19-10" bindshare="_proxy"></mp-list>
+      </swiper-item>
+      <swiper-item>
+        <mp-list bind_init="_initComponent" action="{{ action }}" objId="{{ topicId }}" dataType="{{ 4 }}" isInit="{{ init4 }}" refresherEnabled="{{ !scrollY }}" scrollY="{{ scrollY }}" data-wpy-evt="19-11" bindshare="_proxy"></mp-list>
+      </swiper-item>
+    </swiper>
+  </view>
+  <tool bind_init="_initComponent" topic="{{ topic }}"></tool>
+</view>

@@ -1,0 +1,12 @@
+
+<view class="container">
+  <view class="form">
+    <view class="form-title">转换石子钻的数量</view>
+    <input type="number" value="{{ score }}" bindinput="_proxy" data-model-id="4" placeholder="输入数量" data-wpy-evt="25-0"></input>
+    <view class="form-score">消耗{{shell || '0'}}个石子贝</view>
+    <view class="form-des">当前余额：{{user.shell}}贝</view>
+  </view>
+  <button disabled="{{ btnDisabled }}" loading="{{ btnLoading }}" hover-class="btn-hover" data-wpy-evt="25-1" bindtap="_proxy" class="btn-trans">
+    <view>确认转换</view>
+  </button>
+</view>

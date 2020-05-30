@@ -1,0 +1,11 @@
+.my-tabs {
+  border-radius: 0rpx;
+  text-align: left;
+}
+.my-tabs .tab {
+  font-size: 28rpx;
+}
+.my-tabs .tab.active {
+  font-size: 34rpx;
+}
+

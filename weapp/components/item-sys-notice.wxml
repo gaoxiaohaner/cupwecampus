@@ -1,0 +1,12 @@
+
+<view class="item">
+  <view class="time">{{item.moment}}</view>
+  <view class="content">
+    <view>
+      <text space="nbsp" decode="{{ true }}">{{item.message.content}}</text>
+    </view>
+    <view class="tool">
+      <view data-wpy-evt="86-0" bindtap="_proxy" class="btn-read {{item.isRead ? 'has-read' : ''}}">{{item.isRead ? '已读' : '标记已读'}}</view>
+    </view>
+  </view>
+</view>

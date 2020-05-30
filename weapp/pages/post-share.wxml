@@ -1,0 +1,9 @@
+
+<view class="share">
+  <painter bind_init="_initComponent" palette="{{template}}" scale="{{ 0.7 }}" customStyle="margin-top: 30rpx;margin-left: 15%;width: calc(75%);height: calc(100vh - 100rpx);"></painter>
+  <painter bind_init="_initComponent" palette="{{template}}" widthPixels="1080" customStyle="position: absolute; left: -9999rpx;" data-wpy-evt="12-0" bindimgOK="_proxy" bindimgErr="_proxy"></painter>
+  <view data-wpy-evt="12-2" bindtap="_proxy" class="footer">
+    <view class="title">完成</view>
+    <view class="des">「分享图片至朋友圈,与小伙伴一起分享」</view>
+  </view>
+</view>

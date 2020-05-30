@@ -1,0 +1,89 @@
+page {
+  background: #ffffff;
+}
+.container {
+  align-items: center;
+  text-align: center;
+}
+.container .title {
+  color: var(--txt-primary);
+  font-weight: bold;
+  font-size: 40rpx;
+  margin-top: 100rpx;
+}
+.container .action-des {
+  color: var(--txt-second);
+  font-size: 34rpx;
+  margin-top: 16rpx;
+}
+.container .gender {
+  display: flex;
+  flex-direction: row;
+  width: 80%;
+  margin: 0px auto;
+  justify-content: center;
+  margin-top: 180rpx;
+}
+.container .gender .gender-item {
+  flex-grow: 1;
+  text-align: center;
+}
+.container .gender .gender-item image {
+  width: 168rpx;
+  height: 240rpx;
+}
+.container .gender .gender-item .radio {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  margin-top: 40rpx;
+  color: var(--txt-second);
+}
+.container .gender .gender-item .radio .radio-txt {
+  margin-left: 8rpx;
+  font-weight: bold;
+}
+.container .gender .gender-item .radio .icon {
+  font-size: 56rpx;
+}
+.container .gender .gender-item.action .radio {
+  color: var(--txt-primary);
+}
+.footer {
+  position: fixed;
+  bottom: 0px;
+  width: 100%;
+  left: 0px;
+  text-align: center;
+  padding: 50rpx 0rpx;
+}
+.footer button {
+  height: 94rpx;
+  line-height: 94rpx;
+  border-radius: 94rpx;
+  padding: 0rpx 120rpx;
+  display: inline-block;
+  background: #ffd100;
+  color: #13100e;
+  border: none;
+  box-shadow: 4rpx 8rpx 12rpx rgba(255, 209, 0, 0.3);
+  font-size: 34rpx;
+  font-weight: bold;
+}
+.footer button::after {
+  border: none;
+}
+.footer button.btn-login {
+  background: #fae37c;
+}
+.footer .btn-hover {
+  background: #fae37c;
+}
+.footer .des {
+  padding: 16rpx 0rpx;
+  color: #888888;
+  font-size: 24rpx;
+  font-weight: lighter;
+}
+

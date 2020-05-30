@@ -1,0 +1,13 @@
+{
+    "component": true,
+    "usingComponents": {
+        "item-post": "item-post",
+        "mp-page": "mp-page",
+        "item-topic": "item-topic",
+        "item-comment": "item-user-comment",
+        "item-notice": "item-notice",
+        "item-user": "item-user",
+        "item-sys-notice": "item-sys-notice",
+        "item-trade": "../plugin/tip/components/item-trade"
+    }
+}

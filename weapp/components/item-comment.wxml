@@ -1,0 +1,31 @@
+
+<view data-wpy-evt="69-0" bindtap="_proxy" bindlongpress="_proxy" style="  background-position: {{item.isHot ? 90 : -100}}% 80%;" class="comment">
+  <user bind_init="_initComponent" item="{{ item.from }}">
+    <view slot="action" wx:if="{{ showAction }}" data-wpy-evt="69-2" catchtap="_proxy" class="zan">
+      <view class="icon icon-zan-{{item.hasLike ? 'full' : 'line'}}"></view>
+      <view class="num">{{item.thumbsCount || '赞'}}</view>
+    </view>
+  </user>
+  <view class="comment-content">
+    <view class="comment-txt">
+      <text wx:if="{{ item.to && item.commenType === 2 }}">
+        <text>回复</text>
+        <text class="nick">{{item.to.nick}}</text>:
+      </text>
+      <block wx:for="{{ item.content }}" wx:for-index="index" wx:for-item="obj" wx:key="index">
+        <text wx:if="{{ obj.type === 0 }}" space="nbsp" class="{{showInfo ? 'simple' : ''}}">{{obj.value}}</text>
+        <image wx:else src="{{ obj.src }}" class="icon-mini-img"></image>
+      </block>
+    </view>
+    <view class="comment-imgs">
+      <view wx:for="{{ item.imgs }}" wx:for-index="index" wx:for-item="img" wx:key="index" key="{{ index }}" class="comment-img-item">
+        <image src="{{ img.path }}" mode="aspectFill" lazy-load="{{ true }}" data-wpy-evt="69-3" catchtap="_proxy" data-wpytap-a="{{ index }}"></image>
+        <view wx:if="{{ img.height > 1080 }}" class="img-des">长图</view>
+      </view>
+    </view>
+    <view wx:if="{{ showAction }}" class="comment-action">
+      <view class="time">{{item.moment}}</view>
+      <view wx:if="{{ showReply }}" class="reply">{{item.replyCount || ''}}回复</view>
+    </view>
+  </view>
+</view>

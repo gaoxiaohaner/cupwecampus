@@ -1,0 +1,40 @@
+
+<view class="editor">
+  <editor id="editor" showImgToolbar="{{ true }}" hold-keyboard="{{ true }}" placeholder="{{ placeholder }}" data-wpy-evt="72-0" bindblur="_proxy" bindready="_proxy" bindstatuschange="_proxy" style="height: calc(100vh - {{navigationHeight}}px - 100rpx - {{offset}}rpx);"></editor>
+  <view style="bottom: {{isIOS ? boardHeight : 0}}px;" class="editor-tool">
+    <scroll-view scroll-x="{{ true }}" scroll-with-animation="{{ true }}" style="width: calc(100% - 160rpx);">
+      <view class="list">
+        <view data-wpy-evt="72-3" catchtouchend="_proxy" class="item icon icon-Aa"></view>
+        <view style="width: {{isA ? 750 : 0}}rpx;" class="a">
+          <view wx:for="{{ h }}" wx:for-index="index" wx:for-item="i" wx:key="index" key="{{ i }}" hidden="{{ !(isA) }}" class="item">
+            <view data-name="header" data-value="{{'H' + i}}" data-wpy-evt="72-4" catchtouchend="_proxy" bindtap="_proxy" class="icon icon-h{{i}} {{formats.header === i ? 'ql-active' : ''}}"></view>
+          </view>
+        </view>
+        <block wx:if="{{ !isA }}">
+          <view data-wpy-evt="72-6" catchtouchend="_proxy" class="item icon icon-color"></view>
+          <view style="width: {{isColor ? 750 : 0}}rpx;" class="color">
+            <view hidden="{{ !(isColor) }}" data-name="color" data-value="#353535" data-wpy-evt="72-7" catchtouchend="_proxy" bindtap="_proxy" class="item icon black {{formats.color === '#353535' ? 'icon-color-radio-select' : 'icon-color-radio'}}"></view>
+            <view hidden="{{ !(isColor) }}" data-name="color" data-value="#1296db" data-wpy-evt="72-9" catchtouchend="_proxy" bindtap="_proxy" class="item icon blue {{formats.color === '#1296db' ? 'icon-color-radio-select' : 'icon-color-radio'}}"></view>
+            <view hidden="{{ !(isColor) }}" data-name="color" data-value="#f0351c" data-wpy-evt="72-11" catchtouchend="_proxy" bindtap="_proxy" class="item icon red {{formats.color === '#f0351c' ? 'icon-color-radio-select' : 'icon-color-radio'}}"></view>
+            <view hidden="{{ !(isColor) }}" data-name="color" data-value="#bfbfbf" data-wpy-evt="72-13" catchtouchend="_proxy" bindtap="_proxy" class="item icon grey {{formats.color === '#bfbfbf' ? 'icon-color-radio-select' : 'icon-color-radio'}}"></view>
+          </view>
+          <block wx:if="{{ !isColor }}">
+            <view data-name="bold" data-wpy-evt="72-15" catchtouchend="_proxy" bindtap="_proxy" class="item icon icon-B {{formats.bold ? 'ql-active' : ''}}"></view>
+            <view data-name="align" data-value="center" data-wpy-evt="72-17" catchtouchend="_proxy" bindtap="_proxy" class="item icon icon-center {{formats.align === 'center' ? 'ql-active' : ''}}"></view>
+            <view data-wpy-evt="72-19" catchtouchend="_proxy" bindtap="_proxy" class="item icon icon-img"></view>
+            <view data-name="italic" data-wpy-evt="72-21" catchtouchend="_proxy" bindtap="_proxy" class="item icon icon-italic {{formats.italic ? 'ql-active' : ''}}"></view>
+            <view data-name="underline" data-wpy-evt="72-23" catchtouchend="_proxy" bindtap="_proxy" class="item icon icon-underline {{formats.underline ? 'ql-active' : ''}}"></view>
+            <view data-name="strike" data-wpy-evt="72-25" catchtouchend="_proxy" bindtap="_proxy" class="item icon icon-strike {{formats.strike ? 'ql-active' : ''}}"></view>
+            <view data-name="list" data-value="bullet" data-wpy-evt="72-27" catchtouchend="_proxy" bindtap="_proxy" class="item icon icon-list-bullet {{formats.list === 'bullet' ? 'ql-active' : ''}}"></view>
+            <view data-name="list" data-value="check" data-wpy-evt="72-29" catchtouchend="_proxy" bindtap="_proxy" class="item icon icon-list-check {{formats.list === 'ordered' ? 'ql-active' : ''}}"></view>
+          </block>
+        </block>
+      </view>
+    </scroll-view>
+    <view class="editor-action">
+      <view class="btn-mini">
+        <button loading="{{ loading }}" disabled="{{ disabled }}" data-wpy-evt="72-31" bindtap="_proxy" class="btn-send {{disabled ? 'btn-disabled' : ''}}">发布</button>
+      </view>
+    </view>
+  </view>
+</view>

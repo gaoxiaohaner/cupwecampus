@@ -1,0 +1,33 @@
+.item-num {
+  font-size: 26rpx;
+  color: #b2b2b2;
+}
+.notice-tip {
+  display: flex;
+  align-items: center;
+  background: #fff;
+  padding: 20rpx 40rpx;
+  margin-bottom: 30rpx;
+}
+.notice-tip .tip-main {
+  flex-grow: 1;
+}
+.notice-tip .tip-main .tip-title {
+  font-size: 32rpx;
+}
+.notice-tip .tip-main .tip-des {
+  font-size: 26rpx;
+  color: #7a8299;
+  margin-top: 20rpx;
+}
+.notice-tip .btn-action {
+  font-size: 34rpx;
+  color: #1296db;
+}
+.user-item {
+  padding: 20rpx 30rpx;
+  background: #fff;
+  margin: 20rpx 30rpx;
+  border-radius: 8rpx;
+}
+

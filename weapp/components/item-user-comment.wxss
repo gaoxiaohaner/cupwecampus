@@ -1,0 +1,85 @@
+.item {
+  background: #fff;
+  padding: 30rpx;
+  margin-bottom: 20rpx;
+}
+.item .item-content {
+  margin-left: 84rpx;
+  padding-right: 20rpx;
+}
+.item .item-txt {
+  margin: 20rpx 0rpx;
+  color: #000;
+}
+.item .item-txt .txt-type {
+  color: #7a8299;
+}
+.item .item-txt .txt-type .icon {
+  margin-right: 8rpx;
+  font-size: 34rpx;
+  color: #7a8299;
+}
+.item .item-txt text {
+  color: var(--txt-content);
+  font-size: 28rpx;
+  text-align: left;
+}
+.item .item-txt .icon-mini-img {
+  width: 28rpx;
+  height: 28rpx;
+}
+.item .comment-imgs {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 10rpx 0rpx;
+}
+.item .comment-imgs .comment-img-item {
+  position: relative;
+  padding: 10rpx;
+}
+.item .comment-imgs .comment-img-item .img-des {
+  position: absolute;
+  right: 20rpx;
+  bottom: 20rpx;
+  background: rgba(0, 0, 0, 0.5);
+  color: #ffffff;
+  font-size: 22rpx;
+  padding: 6rpx 8rpx;
+  border-radius: 6rpx;
+}
+.item .comment-imgs .comment-img-item image {
+  width: 180rpx;
+  height: 180rpx;
+}
+.item .item-source {
+  display: flex;
+  background: #f1f1f1;
+  align-items: center;
+  border-radius: 10rpx;
+  padding: 20rpx;
+}
+.item .item-source image {
+  flex-shrink: 0;
+  width: 72rpx;
+  height: 72rpx;
+  border-radius: 10rpx;
+  margin-right: 20rpx;
+}
+.item .item-source .item-source-txt {
+  text-overflow: ellipsis;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  /*设置文本行数限制*/
+  -webkit-box-orient: vertical;
+  /*设置文本排列方式*/
+  flex-grow: 1;
+  font-size: 26rpx;
+  color: #7a8299;
+}
+.item .item-date {
+  font-size: 24rpx;
+  color: #b2b2b2;
+  margin-top: 20rpx;
+}
+

@@ -1,0 +1,19 @@
+
+<view style="height: calc(100vh);position: relative;" class="container">
+  <navigation-bar bind_init="_initComponent" ext-class="navigation" back="{{ true }}" show="{{ true }}" background="#ffffff" data-wpy-evt="11-0" bindback="_proxy">
+    <view slot="center" style="{{innerWidth}}" class="user-back">
+      
+      <view data-wpy-evt="11-1" bindtap="_proxy" class="title">
+        <view class="title-c">{{title}}</view>
+        <view style="transform: rotate({{showBox ? 0 : 90}}deg);" class="icon icon-arr-right"></view>
+      </view>
+    </view>
+  </navigation-bar>
+  <view class="send-content">
+    <input-editor bind_init="_initComponent" offset="{{ 0 }}" placeholder="分享你的真实观点和经验" loading="{{ loading }}" disabled="{{ disabled }}" data-wpy-evt="11-2" bindsubmit="_proxy"></input-editor>
+  </view>
+  <view hidden="{{ !(showBox) }}" class="box">
+    <view data-wpy-evt="11-3" bindtap="_proxy" class="box-mask"></view>
+    <view style="top:140rpx;opacity:{{opacity}};" class="box-main">{{title}}</view>
+  </view>
+</view>

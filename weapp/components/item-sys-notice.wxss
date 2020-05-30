@@ -1,0 +1,29 @@
+.item {
+  margin: 20rpx 40rpx;
+}
+.item .time {
+  padding: 20rpx;
+  text-align: center;
+  font-size: 24rpx;
+  color: #b2b2b2;
+}
+.item .content {
+  background: #ffffff;
+  padding: 30rpx;
+  border-radius: 20rpx;
+  font-size: 32rpx;
+  line-height: 48rpx;
+}
+.item .content .tool {
+  text-align: right;
+}
+.item .content .tool .btn-read {
+  font-size: 28rpx;
+  padding: 30rpx;
+  display: inline-block;
+  color: #409eff;
+}
+.item .content .tool .btn-read.has-read {
+  color: #b2b2b2;
+}
+

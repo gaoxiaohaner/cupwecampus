@@ -1,0 +1,19 @@
+
+<view style="height: calc(100vh - 100rpx);">
+  <mp-page bind_init="_initComponent" state="{{ state }}">
+    <comment-item bind_init="_initComponent" showAction="{{ false }}" item="{{ comment }}"></comment-item>
+    
+    <view class="comments">
+      <view class="comments-top">
+        <view class="title">回复({{comment.replyCount}})</view>
+        <view class="zan">
+          <image wx:for="{{ likers }}" wx:for-index="index" wx:for-item="img" wx:key="index" src="{{ img }}" key="{{ index }}"></image>
+          <view class="zan-des">{{comment.thumbsCount}}人赞了</view>
+        </view>
+      </view>
+      <list-comments bind_init="_initComponent" data-ref="list" likeType="{{ 1 }}" data-wpy-evt="8-0" bindshowInput="_proxy"></list-comments>
+    </view>
+  </mp-page>
+  <comment-action bind_init="_initComponent" thumbsCount="{{ comment.thumbsCount }}" commentCount="{{ comment.replyCount }}" toId="{{ comment.fromId }}" postId="{{ comment.postId }}" commentId="{{ comment.id }}" likeType="{{ 1 }}" isLike="{{ comment.hasLike }}" showShare="{{ false }}" wx:if="{{ comment }}" des="{{ placeholder }}" data-wpy-evt="8-1" bindshowInput="_proxy" bindlike="_proxy"></comment-action>
+  <comment-input bind_init="_initComponent" show="{{ showInput }}" placeholder="{{ placeholder }}" commenType="{{ commenType }}" commentId="{{ comment.id }}" postId="{{ comment.postId }}" toId="{{ toId }}" data-wpy-evt="8-3" bindhide="_proxy" bindcomment="_proxy"></comment-input>
+</view>
